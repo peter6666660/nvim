@@ -74,6 +74,13 @@ local tsserver = function (capabilities)
   }
 end
 
+local cssls = function (capabilities)
+  local lspconfig = require('lspconfig')
+	lspconfig.cssls.setup{
+     capabilities = capabilities,
+     on_attach = on_attach
+  }
+end
 return {
 	 -- nvim-lspconfig 用于配置 LSP
 	{
@@ -86,11 +93,13 @@ return {
 		config = function()
       require('mason').setup()
 			require('mason-lspconfig').setup({
-				ensure_installed = {'lua_ls', 'tsserver'}, -- 自动安装这些 LSP
+				ensure_installed = {'lua_ls', 'tsserver', 'css-lsp'}, -- 自动安装这些 LSP
 			})
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 			tsserver(capabilities)
 			lua_ls(capabilities)
+      cssls(capabilities)
 		end
 	}
 }

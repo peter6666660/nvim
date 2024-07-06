@@ -2,6 +2,7 @@
 
 -- 复制到剪切板
 vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 
 -- 快速文档中跳转hop插件
 vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", { noremap = true, silent = true })
@@ -21,7 +22,7 @@ local nMappings = {
 		f = {
 			name = "搜索文件",
 			f = { ":Telescope find_files<CR>", "查文件" },
-			g = { ":Telescope live_grep<CR>", "查内容" },
+			["/"] = { ":Telescope live_grep<CR>", "查内容" },
 			h = { ":Telescope help_tags<CR>", "查文档" },
 			r = { ":Telescope oldfiles<CR>", "最近打开的文件" },
 		},
