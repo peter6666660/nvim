@@ -1,5 +1,12 @@
 --  快捷键管理插件
 
+-- 复制到剪切板
+vim.api.nvim_set_keymap("v", "y", '"+y', {noremap=true, silent = true})
+
+-- 快速文档中跳转hop插件
+vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", {noremap=true, silent = true})
+
+
 --普通模式下的快捷键
 local nMappings  = {
 	["<leader>"] = {
@@ -11,6 +18,12 @@ local nMappings  = {
 			l = {":BufferLineCloseLeft <CR>", "关闭左边的tab"},
 			r = {":BufferLineCloseRight <CR>", "关闭左边的tab"},
 			d = {":bd <CR>", "关闭当前的tab"}
+		},
+		f = {
+			name="搜索文件",
+			f = {":Telescope find_files<CR>", "查文件"},
+			g = {":Telescope live_grep<CR>", "查内容"},
+			h = {":Telescope help_tags<CR>", "查文档"},
 		}
 	}
 }
@@ -52,8 +65,8 @@ end
 return {
   -- I have a separate config.mappings file where I require which-key.
   -- With lazy the plugin will be automatically loaded when it is required somewhere
-  { 
-	"folke/which-key.nvim", 
+  {
+	"folke/which-key.nvim",
 	 event = "VeryLazy",
 	 init = function()
 		 vim.o.timeout = true

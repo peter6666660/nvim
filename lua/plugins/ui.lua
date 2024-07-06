@@ -36,5 +36,26 @@ return {
 		  require("bufferline").setup();
 	  end
 
-  }
+  },
+  -- 语法高亮
+  {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require("nvim-treesitter.configs").setup{
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        }
+      }
+    end
+  },
+  {
+        "nvim-lualine/lualine.nvim",
+        opts = {
+            options = {
+                section_separators = '',
+                component_separators = ''
+            }
+        }
+    }
 }
