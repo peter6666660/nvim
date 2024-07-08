@@ -30,6 +30,11 @@ local nMappings = {
 			name = "代码相关",
 			f = { ":Neoformat <CR>", "格式化代码" },
 		},
+
+		g = {
+			name = "git",
+			g = { ":LazyGit <CR>", "lazyGit" },
+		},
 	},
 }
 
