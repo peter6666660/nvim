@@ -24,7 +24,14 @@ return {
 			vim.g.loaded_netrwPlugin = 1
 		end,
 		config = function()
-			require("nvim-tree").setup({})
+			require("nvim-tree").setup({
+				-- 目录中展示当前文件
+				update_focused_file = {
+					enable = true,
+					update_cwd = true, -- 展示当前的目录
+					ignore_list = {},
+				},
+			})
 		end,
 	},
 	-- tab
