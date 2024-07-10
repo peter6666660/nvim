@@ -22,7 +22,7 @@ local nMappings = {
 		f = {
 			name = "搜索文件",
 			f = { ":Telescope find_files<CR>", "查文件" },
-			["/"] = { ":Telescope live_grep<CR>", "查内容" },
+			g = { ":Telescope live_grep<CR>", "查内容" },
 			h = { ":Telescope help_tags<CR>", "查文档" },
 			r = { ":Telescope oldfiles<CR>", "最近打开的文件" },
 		},
