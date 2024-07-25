@@ -1,6 +1,8 @@
 --  快捷键管理插件
 
 -- 复制到剪切板
+vim.api.nvim_set_keymap("v", "d", '"+d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "x", '"+x', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 
