@@ -23,8 +23,9 @@ vim.g.maplocalleader = " "
 -- 这里是一些全局配置
 require("config.options")
 
+local lazy = require('lazy')
 -- Setup lazy.nvim
-require("lazy").setup({
+lazy.setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
@@ -35,5 +36,3 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
-
