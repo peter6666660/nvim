@@ -73,6 +73,13 @@ local tsserver = function (capabilities)
      on_attach = on_attach
   }
 end
+local html = function (capabilities)
+  local lspconfig = require('lspconfig')
+	lspconfig.html.setup{
+     capabilities = capabilities,
+     on_attach = on_attach
+  }
+end
 
 local vuels = function (capabilities)
   local lspconfig = require('lspconfig')
@@ -104,6 +111,7 @@ return {
 			})
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+			html(capabilities)
 			tsserver(capabilities)
 			lua_ls(capabilities)
       cssls(capabilities)
