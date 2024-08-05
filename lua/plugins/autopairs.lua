@@ -13,4 +13,6 @@ return {
 	},
 	-- 可以最快选中 ' " { (  的内容
 	{ "gcmt/wildfire.vim" },
+  -- 快速选中变量 c-n 类似 vscode 的 c-d
+  {'mg979/vim-visual-multi'}
 }
