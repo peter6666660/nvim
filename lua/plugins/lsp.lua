@@ -107,7 +107,7 @@ return {
 		config = function()
       require('mason').setup()
 			require('mason-lspconfig').setup({
-				ensure_installed = {'lua_ls', 'tsserver', 'css-lsp', 'vuels'}, -- 自动安装这些 LSP
+				ensure_installed = {'lua_ls', 'tsserver', 'vuels'}, -- 自动安装这些 LSP
 			})
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 

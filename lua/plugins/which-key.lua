@@ -11,66 +11,53 @@ vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", { norema
 
 --普通模式下的快捷键
 local nMappings = {
-	["<leader>"] = {
-		e = { ":NvimTreeToggle <CR>", "切换目录" },
-		q = { ":q <CR>", "关闭文件" },
-		w = { ":w <CR>", "保存文件" },
-		b = {
-			name = "Tab",
-			l = { ":BufferLineCloseLeft <CR>", "关闭左边的tab" },
-			r = { ":BufferLineCloseRight <CR>", "关闭左边的tab" },
-			d = { ":bd <CR>", "关闭当前的tab" },
-		},
-		f = {
-			name = "搜索文件",
-			f = { ":Telescope find_files<CR>", "查文件" },
-			g = { ":Telescope live_grep<CR>", "查内容" },
-			h = { ":Telescope help_tags<CR>", "查文档" },
-			r = { ":Telescope oldfiles<CR>", "最近打开的文件" },
-		},
-		c = {
-			name = "代码相关",
-			f = { ":Neoformat <CR>", "格式化代码" },
-		},
+  { "<leader>b", group = "Tab", remap = false },
+  { "<leader>bd", ":bd <CR>", desc = "关闭当前的tab", remap = false },
+  { "<leader>bl", ":BufferLineCloseLeft <CR>", desc = "关闭左边的tab", remap = false },
+  { "<leader>br", ":BufferLineCloseRight <CR>", desc = "关闭左边的tab", remap = false },
 
-		g = {
-			name = "git",
-			g = { ":LazyGit <CR>", "lazyGit" },
-		},
-	},
+  { "<leader>c", group = "代码相关", remap = false },
+  { "<leader>cf", ":Neoformat <CR>", desc = "格式化代码", remap = false },
+
+  { "<leader>e", ":NvimTreeToggle <CR>", desc = "切换目录", remap = false },
+
+  { "<leader>f", group = "搜索文件", remap = false },
+  { "<leader>ff", ":Telescope find_files<CR>", desc = "查文件", remap = false },
+  { "<leader>fg", ":Telescope live_grep<CR>", desc = "查内容", remap = false },
+  { "<leader>fh", ":Telescope help_tags<CR>", desc = "查文档", remap = false },
+  { "<leader>fr", ":Telescope oldfiles<CR>", desc = "最近打开的文件", remap = false },
+
+  { "<leader>g", group = "Git", remap = false },
+  { "<leader>gg", ":LazyGit <CR>", desc = "lazyGit", remap = false },
+
+  { "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
+
+  { "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
 }
 
--- 编辑模式
+
 local iMappings = {
-	["jk"] = { "<ESC>", "退出文件编辑" },
+  -- mode == i 编辑时触发
+  {"jk", "<ESC>",desc="退出文件编辑", mode="i" }
 }
 
 local setConfig = function(wk)
 	wk.setup()
-	wk.register({
-		-- 分屏
-		["<C-h>"] = { "<C-w>h", "切换到左分屏" },
-		["<C-l>"] = { "<C-w>l", "切换到右分屏" },
-		["<C-j>"] = { "<C-w>j", "切换到上分屏" },
-		["<C-k>"] = { "<C-w>k", "切换到下分屏" },
+	wk.add({
+		-- 分屏切换
+    {"<C-h>", "<C-w>h", desc="切换到左分屏"},
+    {"<C-l>", "<C-w>l", desc="切换到右分屏"},
+    {"<C-j>", "<C-w>j", desc="切换到上分屏"},
+    {"<C-k>", "<C-w>k", desc="切换到下分屏"},
 
 		-- tab
 		-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
 		-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
-		["<Tab>"] = { ":bn <CR>", "切换到下一个tab" },
-		["<S-Tab>"] = { ":bp <CR>", "切换到上一个tab" },
+    {"<Tab>", ":bn <CR>", desc="切换到下一个tab"},
+    {"<S-Tab>", ":bp <CR>", desc="切换到上一个tab"},
 	})
-
-	wk.register(nMappings, {
-		mode = "n",
-		silent = true,
-		noremap = true,
-	})
-	wk.register(iMappings, {
-		mode = "i",
-		silent = true,
-		noremap = true,
-	})
+	wk.add(nMappings)
+	wk.add(iMappings)
 end
 
 return {
