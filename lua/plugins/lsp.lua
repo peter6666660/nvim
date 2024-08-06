@@ -64,10 +64,15 @@ local lua_ls = function(capabilities)
 	})
 end
 
-local tsserver = function(capabilities)
+local tsserver = function()
+  local cmp_nvim_lsp = require('cmp_nvim_lsp')
 	local lspconfig = require("lspconfig")
+  local util = lspconfig.util
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+
 	lspconfig.tsserver.setup({
-		root_dir = lspconfig.util.root_pattern("jsconfig.json", ".git", "tsconfig.json"),
+		root_dir = util.root_pattern("jsconfig.json", "tsconfig.json" ,".git"),
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
@@ -115,7 +120,6 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim", -- 管理lsp,formatting 等插件
 			"williamboman/mason-lspconfig.nvim", -- 快捷配置
-			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			require("mason").setup()
@@ -125,7 +129,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			html(capabilities)
-			tsserver(capabilities)
+			tsserver()
 			lua_ls(capabilities)
 			cssls(capabilities)
 			vuels(capabilities)
