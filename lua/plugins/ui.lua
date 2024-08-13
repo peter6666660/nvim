@@ -31,6 +31,9 @@ return {
 					update_cwd = true, -- 展示当前的目录
 					ignore_list = {},
 				},
+        view = {
+          width = 45
+        }
 			})
 		end,
 	},
