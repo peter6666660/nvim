@@ -28,8 +28,13 @@ function M.lua_ls()
   })
 end
 
+function M.tsserver()
+  lspconfig.tsserver.setup {}
+end
+
 function M.setup(lsp)
   M.lua_ls()
+  M.tsserver()
 end
 
 return M

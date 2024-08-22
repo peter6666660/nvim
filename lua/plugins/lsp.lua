@@ -10,17 +10,6 @@ return {
     lazy = false,
     config = true,
   },
-  --  美化lsp提示
-  {
-    "nvimdev/lspsaga.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons",     -- optional
-    },
-    config = function()
-      require("lspsaga").setup({})
-    end,
-  },
   -- LSP
   {
     "neovim/nvim-lspconfig",
@@ -37,8 +26,8 @@ return {
       -- lsp_attach is where you enable features that only work
       -- if there is a language server active in the file
       local lsp_attach = function(client, bufnr)
-        local opts = { buffer = bufnr }
-        lsp_zero.buffer_autoformat()
+        local opts = { buffer = bufnr, noremap = true, silent = true }
+        -- lsp_zero.buffer_autoformat()
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
         vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
         vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
@@ -54,7 +43,6 @@ return {
       lsp_zero.extend_lspconfig({
         sign_text = true,
         lsp_attach = lsp_attach,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       require("mason").setup({})
@@ -72,4 +60,15 @@ return {
       lspCustomconfig.setup(lsp_zero)
     end,
   },
+  --  美化lsp提示
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter", -- optional
+  --     "nvim-tree/nvim-web-devicons",     -- optional
+  --   },
+  --   config = function()
+  --     require("lspsaga").setup({})
+  --   end,
+  -- },
 }
