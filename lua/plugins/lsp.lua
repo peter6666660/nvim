@@ -65,14 +65,14 @@ local lua_ls = function(capabilities)
 end
 
 local tsserver = function()
-  local cmp_nvim_lsp = require('cmp_nvim_lsp')
+	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local lspconfig = require("lspconfig")
-  local util = lspconfig.util
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+	local util = lspconfig.util
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 	lspconfig.tsserver.setup({
-		root_dir = util.root_pattern("jsconfig.json", "tsconfig.json" ,".git"),
+		root_dir = util.root_pattern("jsconfig.json", "tsconfig.json", ".git"),
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
@@ -82,9 +82,9 @@ local html = function(capabilities)
 	lspconfig.html.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-    filetypes = {
-      "html"
-    }
+		filetypes = {
+			"html",
+		},
 	})
 end
 
@@ -105,12 +105,12 @@ local cssls = function(capabilities)
 	lspconfig.cssls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-    filetypes = {
-      "css",
-      "scss",
-      "sass",
-      "less"
-    }
+		filetypes = {
+			"css",
+			"scss",
+			"sass",
+			"less",
+		},
 	})
 end
 return {
@@ -126,6 +126,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "tsserver", "vuels" }, -- 自动安装这些 LSP
 			})
+			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			html(capabilities)
@@ -133,6 +134,22 @@ return {
 			lua_ls(capabilities)
 			cssls(capabilities)
 			vuels(capabilities)
+			-- clang lsp
+			lspconfig.clangd.setup({
+				on_attach = function(client, bufnr)
+					on_attach(client, bufnr)
+				end,
+			})
 		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
 	},
 }
