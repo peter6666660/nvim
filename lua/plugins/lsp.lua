@@ -1,155 +1,75 @@
--- lsp 相关
-
-local on_attach = function(client, bufnr)
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	vim.keymap.set("n", "<leader>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "<leader>f", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
-
-	local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.buf.format({
-					filter = function(client)
-						return client.name == "null-ls"
-					end,
-					bufnr = bufnr,
-				})
-			end,
-		})
-	end
-end
-
-local lua_ls = function(capabilities)
-	require("lspconfig").lua_ls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			Lua = {
-				diagnostics = {
-					-- 识别 `vim` 是全局变量，避免报错
-					globals = { "vim" },
-				},
-				workspace = {
-					-- 使语言服务器识别 Neovim 运行时文件
-					library = vim.api.nvim_get_runtime_file("", true),
-					-- 对第三方插件和 Neovim 内部文件进行支持
-					checkThirdParty = false,
-				},
-				-- 禁用遥测数据
-				telemetry = {
-					enable = false,
-				},
-			},
-		},
-	})
-end
-
-local tsserver = function()
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
-	local lspconfig = require("lspconfig")
-	local util = lspconfig.util
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-
-	lspconfig.tsserver.setup({
-		root_dir = util.root_pattern("jsconfig.json", "tsconfig.json", ".git"),
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-end
-local html = function(capabilities)
-	local lspconfig = require("lspconfig")
-	lspconfig.html.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = {
-			"html",
-		},
-	})
-end
-
-local vuels = function(capabilities)
-	local lspconfig = require("lspconfig")
-	lspconfig.vuels.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = {
-			"javascript",
-			"typescript",
-			"vue",
-		},
-	})
-end
-local cssls = function(capabilities)
-	local lspconfig = require("lspconfig")
-	lspconfig.cssls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = {
-			"css",
-			"scss",
-			"sass",
-			"less",
-		},
-	})
-end
 return {
-	-- nvim-lspconfig 用于配置 LSP
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim", -- 管理lsp,formatting 等插件
-			"williamboman/mason-lspconfig.nvim", -- 快捷配置
-		},
-		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "vuels" }, -- 自动安装这些 LSP
-			})
-			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v4.x",
+    lazy = true,
+    config = false,
+  },
+  {
+    "williamboman/mason.nvim",
+    lazy = false,
+    config = true,
+  },
+  --  美化lsp提示
+  {
+    "nvimdev/lspsaga.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons",     -- optional
+    },
+    config = function()
+      require("lspsaga").setup({})
+    end,
+  },
+  -- LSP
+  {
+    "neovim/nvim-lspconfig",
+    cmd = { "LspInfo", "LspInstall", "LspStart" },
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+    },
+    config = function()
+      local lsp_zero = require("lsp-zero")
 
-			html(capabilities)
-			tsserver()
-			lua_ls(capabilities)
-			cssls(capabilities)
-			vuels(capabilities)
-			-- clang lsp
-			lspconfig.clangd.setup({
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-				end,
-			})
-		end,
-	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup({})
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-	},
+      -- lsp_attach is where you enable features that only work
+      -- if there is a language server active in the file
+      local lsp_attach = function(client, bufnr)
+        local opts = { buffer = bufnr }
+        lsp_zero.buffer_autoformat()
+        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+        vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+        vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+        vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+        vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+        vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+        vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+        vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+        vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+        vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+      end
+
+      lsp_zero.extend_lspconfig({
+        sign_text = true,
+        lsp_attach = lsp_attach,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      require("mason").setup({})
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "tsserver", "cssls" },
+        handlers = {
+          function(server_name)
+            require("lspconfig")[server_name].setup({})
+          end,
+        },
+      })
+
+      -- 自定义lsp
+      local lspCustomconfig = require("config.lsp")
+      lspCustomconfig.setup(lsp_zero)
+    end,
+  },
 }
