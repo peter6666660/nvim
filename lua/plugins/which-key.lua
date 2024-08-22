@@ -21,14 +21,17 @@ local nMappings = {
 
   { "<leader>e", ":NvimTreeToggle <CR>", desc = "切换目录", remap = false },
 
+  -- Telescope
   { "<leader>f", group = "搜索文件", remap = false },
   { "<leader>ff", ":Telescope find_files<CR>", desc = "查文件", remap = false },
   { "<leader>fg", ":Telescope live_grep<CR>", desc = "查内容", remap = false },
   { "<leader>fh", ":Telescope help_tags<CR>", desc = "查文档", remap = false },
   { "<leader>fr", ":Telescope oldfiles<CR>", desc = "最近打开的文件", remap = false },
 
+  -- git
   { "<leader>g", group = "Git", remap = false },
   { "<leader>gg", ":LazyGit <CR>", desc = "lazyGit", remap = false },
+  { "<leader>gd", ":Gitsigns diffthis<CR>", desc = "git diff", remap = false, mode="n" },
 
   { "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
 
