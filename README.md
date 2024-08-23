@@ -1,3 +1,9 @@
+# 版本
+
+* neovim ^0.10.1
+    - 之前版本影响nvimdev/lspsaga.nvim
+
+
 ### lsp-tsserver
 
 > 识别别名 @, 需要关注 paths 字段和 include 是否配置了后缀

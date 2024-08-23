@@ -40,12 +40,12 @@ local nMappings = {
 
   { "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
   -- lspsaga.nvim 相关 gd gD gr gk等
-  -- { "gd", ":Lspsaga goto_definition<CR>", desc = "跳转到定义", remap = false, mode = "n" },
-  -- { "gD", ":Lspsaga goto_definition<CR>", desc = "跳转到定义的类型", remap = false, mode = "n" },
-  -- { "gr", ":Lspsaga rename<CR>", desc = "", remap = false, mode = "n" },
-  -- { "gf", ":Lspsaga finder<CR>", desc = "跳转到引用", remap = false, mode = "n" },
-  -- { "gk", ":Lspsaga peek_definition<CR>", desc = "预览定义", remap = false, mode = "n" },
-  -- { "K", ":Lspsaga hover_doc<CR>", desc = "hover doc", remap = false, mode = "n" },
+  { "gd", ":Lspsaga goto_definition<CR>", desc = "跳转到定义", remap = false, mode = "n" },
+  { "gD", ":Lspsaga goto_definition<CR>", desc = "跳转到定义的类型", remap = false, mode = "n" },
+  { "gr", ":Lspsaga rename<CR>", desc = "", remap = false, mode = "n" },
+  { "gf", ":Lspsaga finder<CR>", desc = "跳转到引用", remap = false, mode = "n" },
+  { "gk", ":Lspsaga peek_definition<CR>", desc = "预览定义", remap = false, mode = "n" },
+  { "K", ":Lspsaga hover_doc<CR>", desc = "hover doc", remap = false, mode = "n" },
 }
 
 local iMappings = {
