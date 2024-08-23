@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins/completion.lua
 return {
 	"hrsh7th/nvim-cmp",
+  event = "InsertEnter", -- 只有键入的时候才启动cmp
 	dependencies = {
 		-- source - 增加lsp的变量
 		"hrsh7th/cmp-nvim-lsp",
