@@ -10,7 +10,7 @@ return {
       vim.o.timeoutlen = 300
     end,
     config = function()
-      require("config.keymap").setup()
+      require("config.keymaps").setup()
     end,
   },
 }

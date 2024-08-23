@@ -25,9 +25,10 @@ local nMappings = {
 
   -- Telescope
   { "<leader>f", group = "搜索文件", remap = false },
-  { "<leader>ff", ":Telescope find_files<CR>", desc = "查文件", remap = false },
-  { "<leader>fg", ":Telescope live_grep<CR>", desc = "查内容", remap = false },
-  { "<leader>fh", ":Telescope help_tags<CR>", desc = "查文档", remap = false },
+  { "<leader>ff", ":Telescope find_files<CR>", desc = "搜索文件", remap = false },
+  -- { "<leader>fg", ":Telescope live_grep<CR>", desc = "查内容", remap = false }, 注释掉使用rg搜索，能支持
+  { "<leader>fg", ":lua require(\"telescope\").extensions.live_grep_args.live_grep_args()<CR>", desc = "全局搜索", remap = false },
+  { "<leader>fh", ":Telescope help_tags<CR>", desc = "搜索文档", remap = false },
   { "<leader>fr", ":Telescope oldfiles<CR>", desc = "最近打开的文件", remap = false },
 
   -- git

@@ -32,4 +32,6 @@ return {
 			require("telescope").load_extension("lazygit")
 		end,
 	},
+  -- diff view -暂时可以不用
+  -- {"sindrets/diffview.nvim"}
 }
