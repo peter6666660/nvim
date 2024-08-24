@@ -51,7 +51,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "javascript", "typescript", "vue", "css", "scss","markdown", "markdown_inline" },
+				ensure_installed = { "javascript", "typescript", "vue", "css", "scss", "markdown", "markdown_inline" },
 				sync_install = false,
 				auto_install = true,
 				ignore_install = {},
@@ -89,12 +89,12 @@ return {
 			require("ibl").setup({})
 		end,
 	},
-	-- TODO: 高亮TODO 
+	-- TODO: 高亮TODO
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-    config = function ()
-      require("todo-comments").setup()
-    end
+		config = function()
+			require("todo-comments").setup()
+		end,
 	},
 }
