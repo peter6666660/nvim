@@ -6,7 +6,7 @@
 
 | 插件                                                              | 版本            | 作用                   |
 | ----------------------------------------------------------------- | --------------- | ---------------------- |
-| neovim                                                            | ^0.10.1         | -                      |
+| neovim                                                            | v0.10.0         | -                      |
 | VonHeikemen/lsp-zero.nvim                                         | branch = "v4.x" | 简化和配置LSP          |
 | [hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)   | \*              | 代码大纲               |
 | [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim)   | \*              | 日历/时钟              |
