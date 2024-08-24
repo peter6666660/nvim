@@ -80,6 +80,8 @@ return {
 					"xml",
 					"yaml",
 					"vue",
+          "scss",
+          "css"
 				},
 				sync_install = false,
 				auto_install = true,
