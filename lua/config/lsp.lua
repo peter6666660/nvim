@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.lspNameList = { "tsserver", "marksman", "cssls" }
+M.lspNameList = { "marksman", "cssls" }
 
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
@@ -29,11 +29,38 @@ function M.lua_ls()
 		},
 	})
 end
+-- tsserver
+function M.tsserver()
+	lspconfig.tsserver.setup({
+		init_options = {
+			plugins = {
+				-- 支持vue3
+				{
+					name = "@vue/typescript-plugin",
+					location = vim.g.lsp_tsserver_vue_typescript_plugin_path,
+					languages = { "javascript", "typescript", "vue" },
+				},
+			},
+		},
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"javascript.jsx",
+			"typescript",
+			"typescriptreact",
+			"typescript.tsx",
+			"vue",
+		},
+	})
+end
 
+-- vue
 function M.volar()
 	lspconfig.volar.setup({
-		flags = {
-			debounce_text_changes = 150,
+		init_options = {
+			typescript = {
+				tsdk = "node_modules/typescript/lib",
+			},
 		},
 	})
 end
@@ -49,6 +76,7 @@ function M.setup(lsp)
 	-- 手动配置的lsp
 	M.lua_ls()
 	M.volar()
+	M.tsserver()
 end
 
 return M

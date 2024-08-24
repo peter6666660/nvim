@@ -18,5 +18,9 @@ local function check_minimum_version(major, minor, patch)
 	end
 end
 
+vim.cmd([[
+command! ReloadConfig source $MYVIMRC
+]])
+
 -- 设定最低版本为 0.10.1
 check_minimum_version(0, 10, 1)
