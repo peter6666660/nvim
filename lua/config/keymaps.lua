@@ -56,6 +56,11 @@ local nMappings = {
 	{ "gf", ":Lspsaga finder<CR>", desc = "跳转到引用", remap = false, mode = "n" },
 	{ "gk", ":Lspsaga peek_definition<CR>", desc = "预览定义", remap = false, mode = "n" },
 	{ "K", ":Lspsaga hover_doc<CR>", desc = "hover doc", remap = false, mode = "n" },
+
+	-- 日历
+	{ "\\\\", "<cmd>Calendar<CR>", desc = "hover doc", remap = false, mode = "n" },
+	-- 时钟
+	{ "\\c", "<cmd>Calendar -view=clock<CR>", desc = "hover doc", remap = false, mode = "n" },
 }
 
 local iMappings = {
