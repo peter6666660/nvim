@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.lspNameList = { "marksman", "cssls" }
+M.lspNameList = { "marksman", "cssls", "clangd" }
 
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
