@@ -51,7 +51,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "javascript", "typescript", "vue", "css", "scss" },
+				ensure_installed = { "javascript", "typescript", "vue", "css", "scss","markdown", "markdown_inline" },
 				sync_install = false,
 				auto_install = true,
 				ignore_install = {},

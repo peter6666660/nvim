@@ -32,6 +32,17 @@ function M.tsserver()
 	lspconfig.tsserver.setup({})
 end
 
+function M.cssls()
+	lspconfig.cssls.setup({
+		filetypes = {
+			"css",
+			"scss",
+			"sass",
+			"less",
+		},
+	})
+end
+
 function M.volar()
 	lspconfig.volar.setup({
 		flags = {
@@ -41,9 +52,11 @@ function M.volar()
 end
 
 function M.setup(lsp)
+  lspconfig.marksman.setup{}
 	M.lua_ls()
 	M.tsserver()
-  M.volar()
+	M.volar()
+	M.cssls()
 end
 
 return M

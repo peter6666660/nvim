@@ -1,8 +1,11 @@
-# 版本
+## 插件版本
 
-* neovim ^0.10.1
-    - 之前版本影响nvimdev/lspsaga.nvim
+### 插件列表
 
+| 插件                      | 版本            | 作用          |
+| ------------------------- | --------------- | ------------- |
+| neovim                    | ^0.10.1         | -             |
+| VonHeikemen/lsp-zero.nvim | branch = "v4.x" | 简化和配置LSP |
 
 ### lsp-tsserver
 

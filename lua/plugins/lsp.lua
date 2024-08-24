@@ -13,12 +13,11 @@ return {
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "williamboman/mason.nvim" },
+			{ "WhoIsSethDaniel/mason-tool-installer.nvim" }, -- 自动加载一些插件
 			{ "williamboman/mason-lspconfig.nvim" },
-			{ "nvimdev/lspsaga.nvim" },
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
-			require("lspsaga").setup({})
 
 			-- lspsaga 替代
 			-- lsp_attach is where you enable features that only work
@@ -41,12 +40,21 @@ return {
 			lsp_zero.extend_lspconfig({
 				sign_text = true,
 				-- lsp_attach = lsp_attach,
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			})
 
 			require("mason").setup({})
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"prettier", -- JavaScript/TypeScript/CSS/HTML/Markdown 格式化
+					"stylua", -- Lua 格式化
+					"shfmt", -- Shell 脚本格式化
+				},
+				automatic_installation = true,
+			})
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "cssls" },
-        -- 自动加载lsp 先注释
+				ensure_installed = { "lua_ls", "tsserver", "cssls", "marksman" },
+				-- 自动加载lsp 先注释
 				-- handlers = {
 				--   function(server_name)
 				--     require("lspconfig")[server_name].setup({})

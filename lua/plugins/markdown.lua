@@ -1,5 +1,5 @@
 return {
-  --  预览markdown
+	--  预览markdown
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
