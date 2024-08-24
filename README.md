@@ -2,6 +2,26 @@
 
 ## 插件
 
+### [使用bob关闭neovim版本](https://github.com/MordechaiHadad/bob)
+
+```bash
+cargo install --git https://github.com/MordechaiHadad/bob.git
+
+# 会提示一些命令
+bob
+
+# 下载neovim 版本
+bob install 0.10.0
+# 使用某个版本
+bob use 0.10.0
+# 查看有哪些版本
+bob list
+
+# 目录会安装到 ~/.local/share/bob/nvim-bin/nvim
+# 自行去link
+
+```
+
 ### 插件列表
 
 | 插件                                                              | 版本            | 作用                   |
