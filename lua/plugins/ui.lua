@@ -52,7 +52,17 @@ return {
 		tag = "v0.9.2",
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				ensure_installed = { "javascript", "typescript", "vue", "css", "scss", "markdown", "markdown_inline" },
+				ensure_installed = {
+					"javascript",
+					"typescript",
+					"vue",
+					"css",
+					"scss",
+					"json",
+					"html",
+					"markdown",
+					"markdown_inline",
+				},
 				sync_install = false,
 				auto_install = true,
 				ignore_install = {},

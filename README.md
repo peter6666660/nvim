@@ -1,13 +1,16 @@
-## 插件版本
+# NEOVIM
+
+## 插件
 
 ### 插件列表
 
-| 插件                                                            | 版本            | 作用          |
-| --------------------------------------------------------------- | --------------- | ------------- |
-| neovim                                                          | ^0.10.1         | -             |
-| VonHeikemen/lsp-zero.nvim                                       | branch = "v4.x" | 简化和配置LSP |
-| [hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim) | \*              | 代码大纲      |
-| [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim) | \*              | 日历/时钟     |
+| 插件                                                              | 版本            | 作用                   |
+| ----------------------------------------------------------------- | --------------- | ---------------------- |
+| neovim                                                            | ^0.10.1         | -                      |
+| VonHeikemen/lsp-zero.nvim                                         | branch = "v4.x" | 简化和配置LSP          |
+| [hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)   | \*              | 代码大纲               |
+| [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim)   | \*              | 日历/时钟              |
+| [OXY2DEV/markview.nvim](https://github.com/OXY2DEV/markview.nvim) | v20.1.0         | neovim 中 预览markdown |
 
 ### lsp-tsserver
 
