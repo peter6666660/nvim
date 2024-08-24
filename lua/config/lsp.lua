@@ -5,6 +5,8 @@ end
 
 local M = {}
 
+M.lspNameList = { "tsserver", "marksman", "cssls" }
+
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
 		settings = {
@@ -28,21 +30,6 @@ function M.lua_ls()
 	})
 end
 
-function M.tsserver()
-	lspconfig.tsserver.setup({})
-end
-
-function M.cssls()
-	lspconfig.cssls.setup({
-		filetypes = {
-			"css",
-			"scss",
-			"sass",
-			"less",
-		},
-	})
-end
-
 function M.volar()
 	lspconfig.volar.setup({
 		flags = {
@@ -52,11 +39,16 @@ function M.volar()
 end
 
 function M.setup(lsp)
-  lspconfig.marksman.setup{}
+	-- 自动加载配置的lsp
+	for _, value in ipairs(M.lspNameList) do
+		if lspconfig[value] ~= nil then
+			lspconfig[value].setup({})
+		end
+	end
+
+	-- 手动配置的lsp
 	M.lua_ls()
-	M.tsserver()
 	M.volar()
-	M.cssls()
 end
 
 return M
