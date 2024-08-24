@@ -1,12 +1,4 @@
 return {
-	--  预览markdown
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && npm install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	},
+	-- 高亮markdown
+	-- { "preservim/vim-markdown", ft = { "markdown" } },
 }

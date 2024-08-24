@@ -49,6 +49,7 @@ return {
 	-- 语法高亮
 	{
 		"nvim-treesitter/nvim-treesitter",
+		tag = "v0.9.2",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "javascript", "typescript", "vue", "css", "scss", "markdown", "markdown_inline" },
