@@ -18,6 +18,9 @@
 -- 	end
 -- end
 
+-- 默认配置
+require("config.defaults")
+
 -- 设定最低版本为 0.10.0
 -- check_minimum_version(0, 6, 0)
 require("config.lazy")

@@ -1,6 +1,6 @@
 return {
 	"sbdchd/neoformat",
-	init = function()
+	config = function()
 		require("config.format").setup()
 	end,
 }

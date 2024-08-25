@@ -1,8 +1,8 @@
 local M = {}
--- 格式化文件
-local fileTypeList = { "*.md", "*.lua", "*.vue" }
 
 M.setup = function()
+	-- 格式化文件
+	local fileTypeList = vim.g.autoformat_type_list
 	vim.g.neoformat_enabled_javascript = { "prettier" }
 	vim.g.neoformat_enabled_typescript = { "prettier" }
 	vim.g.neoformat_enabled_typescriptreact = { "prettier" }

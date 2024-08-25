@@ -21,8 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 默认配置
-require("config.defaults")
 -- 这里是一些全局配置
 require("config.options")
 

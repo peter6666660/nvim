@@ -22,6 +22,16 @@ bob list
 
 ```
 
+### 默认配置
+
+1.  修改 ./lua/config/machine_specific.lua
+2.  默认配置在 ./default_config/\_machine_specific_default.lua
+
+| 环境变量                                      | 说明                         |
+| --------------------------------------------- | ---------------------------- |
+| vim.g.lsp_tsserver_vue_typescript_plugin_path | Vue LSP 支持 script 语法提示 |
+| vim.g.autoformat_type_list                    | 配置自动格式化文件类型       |
+
 ### 插件列表
 
 | 插件                                                              | 版本            | 作用                   |
