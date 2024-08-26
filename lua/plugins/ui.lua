@@ -80,8 +80,8 @@ return {
 					"xml",
 					"yaml",
 					"vue",
-          "scss",
-          "css"
+					"scss",
+					"css",
 				},
 				sync_install = false,
 				auto_install = true,
@@ -112,9 +112,11 @@ return {
 		},
 	},
 	-- 只有这个版本可用(tag = 3.3.11)
+	-- 缩进线
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
+		event = { "BufReadPre", "BufNewFile" },
 		tag = "v3.3.11",
 		config = function()
 			require("ibl").setup({})
@@ -123,6 +125,7 @@ return {
 	-- TODO: 高亮TODO
 	{
 		"folke/todo-comments.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("todo-comments").setup()

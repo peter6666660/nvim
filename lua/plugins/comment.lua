@@ -2,6 +2,7 @@
 return {
 	{
 		"numToStr/Comment.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring", -- 注释jsx , tsx
 		},

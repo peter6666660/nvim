@@ -34,7 +34,7 @@ local nMappings = {
 	-- { "<leader>fg", ":Telescope live_grep<CR>", desc = "查内容", remap = false }, 注释掉使用rg搜索，能支持
 	{
 		"<leader>fg",
-		':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',
+		":Telescope live_grep_args<CR>",
 		desc = "全局搜索",
 		remap = false,
 	},
@@ -56,6 +56,9 @@ local nMappings = {
 	{ "gf", ":Lspsaga finder<CR>", desc = "跳转到引用", remap = false, mode = "n" },
 	{ "gk", ":Lspsaga peek_definition<CR>", desc = "预览定义", remap = false, mode = "n" },
 	{ "K", ":Lspsaga hover_doc<CR>", desc = "hover doc", remap = false, mode = "n" },
+
+	-- 取消高亮
+	{ "<leader><CR>", ":nohlsearch<cr>", desc = "取消高亮", remap = false, mode = "n" },
 
 	-- 日历
 	{ "\\\\", "<cmd>Calendar<CR>", desc = "hover doc", remap = false, mode = "n" },

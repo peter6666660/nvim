@@ -51,6 +51,7 @@ return {
 	--  美化lsp提示
 	{
 		"nvimdev/lspsaga.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},

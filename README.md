@@ -2,6 +2,15 @@
 
 ## 插件
 
+### lazy懒加载控制
+
+| 类型 | key   | 值          | 说明                           |
+| ---- | ----- | ----------- | ------------------------------ |
+| 事件 | event | BufNewFile  | 打开新文件                     |
+| 事件 | event | BufReadPre  | 在开始读取缓冲区内容之前触发。 |
+| 事件 | event | BufReadPost | 在缓冲区内容读取完成之后触发。 |
+| 命令 | cmd   | <CMD>       | 输入的命令 eg: Telescope       |
+
 ### [使用bob关闭neovim版本](https://github.com/MordechaiHadad/bob)
 
 ```bash

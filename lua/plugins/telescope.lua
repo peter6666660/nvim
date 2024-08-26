@@ -3,6 +3,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 		version = false, -- 使用最新版本
 		-- tag = "0.1.8",
+		cmd = { "Telescope" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
