@@ -18,9 +18,12 @@
 -- 	end
 -- end
 
+function loadLazy()
+	require("config.lazy")
+end
+
 -- 默认配置
-require("config.defaults")
+require("config.defaults").setup(loadLazy)
 
 -- 设定最低版本为 0.10.0
 -- check_minimum_version(0, 6, 0)
-require("config.lazy")
