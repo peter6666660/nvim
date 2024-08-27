@@ -104,3 +104,9 @@ bob list
   "exclude": ["node_modules"]
 }
 ```
+
+### Telescope - 全局提现
+
+- Telescope live_grep 搜索选中要修改的文件
+- Ctrl + q 把搜索文件保存到 quickfix中
+- cdo | cfdo 进行替换 eg: cdo /oldText/newText/g | update

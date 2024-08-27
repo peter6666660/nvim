@@ -43,6 +43,7 @@ local nMappings = {
 	},
 	{ "<leader>fh", ":Telescope help_tags<CR>", desc = "搜索文档", remap = false },
 	{ "<leader>fr", ":Telescope oldfiles<CR>", desc = "最近打开的文件", remap = false },
+	{ "<leader>fq", ":Telescope quickfix<CR>", desc = "Quickfix列表(给cfdo使用)", remap = false, mode = "n" },
 
 	-- git
 	{ "<leader>g", group = "Git", remap = false },
