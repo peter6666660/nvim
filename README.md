@@ -11,6 +11,20 @@
 | 事件 | event | BufReadPost | 在缓冲区内容读取完成之后触发。 |
 | 命令 | cmd   | <CMD>       | 输入的命令 eg: Telescope       |
 
+### plugins文件管理及说明
+
+| 文件名        | 说明                   |
+| ------------- | ---------------------- |
+| autopairs.lua | 标签,括号,引号操作相关 |
+| format.lua    | 代码格式化相关         |
+| git.lua       | git 相关               |
+| lsp.lua       | 语言服务器相关         |
+| nvim-cmp.lua  | 语法提示相关           |
+| telescope.lua | 搜索相关               |
+| ui.lua        | 视觉相关               |
+| which-key.lua | 快捷键配置             |
+| other.lua     | 其他                   |
+
 ### [使用bob关闭neovim版本](https://github.com/MordechaiHadad/bob)
 
 ```bash
