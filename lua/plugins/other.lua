@@ -41,6 +41,8 @@ return {
 	{
 		"voldikss/vim-translator",
 		cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
-		config = function() end,
+		init = function()
+			vim.g.translator_default_engines = { "bing", "haici" }
+		end,
 	},
 }
