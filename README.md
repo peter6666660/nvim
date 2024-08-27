@@ -25,6 +25,13 @@
 | which-key.lua | 快捷键配置             |
 | other.lua     | 其他                   |
 
+### 自定义命令
+
+| 命令                   | 说明               | path                  |
+| ---------------------- | ------------------ | --------------------- |
+| FormatOpenCurrentFile  | 开启当前文件格式化 | lua/config/format.lua |
+| FormatCloseCurrentFile | 关闭当前文件格式化 | lua/config/format.lua |
+
 ### [使用bob关闭neovim版本](https://github.com/MordechaiHadad/bob)
 
 ```bash
