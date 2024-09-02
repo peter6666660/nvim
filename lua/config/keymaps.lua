@@ -93,6 +93,10 @@ M.setup = function()
 		{ "<S-Tab>", ":bp <CR>", desc = "切换到上一个tab" },
 		{ "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
 		{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
+
+    -- 终端 t 终端模式
+		{ "<ESC>", "<C-\\><C-n>", desc = "退出到终端模式", remap= false, mode="t" },
+		{ "<C-t>", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap= false, mode="n" },
 	})
 	wk.add(iMappings)
 	wk.add(vMappings)
