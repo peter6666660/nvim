@@ -66,7 +66,7 @@ local nMappings = {
 	-- 时钟
 	{ "\\c", "<cmd>Calendar -view=clock<CR>", desc = "hover doc", remap = false, mode = "n" },
 	-- 翻译
-	{ "<leader>t", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
+	{ "tt", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
 }
 
 local iMappings = {
@@ -75,7 +75,7 @@ local iMappings = {
 }
 
 local vMappings = {
-	{ "<leader>t", ":'<,'>TranslateW<CR>", desc = "选中翻译", remap = false, mode = "v" },
+	{ "tt", ":'<,'>TranslateW<CR>", desc = "选中翻译", remap = false, mode = "v" },
 }
 
 M.setup = function()
@@ -94,9 +94,10 @@ M.setup = function()
 		{ "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
 		{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
 
-    -- 终端 t 终端模式
-		{ "<ESC>", "<C-\\><C-n>", desc = "退出到终端模式", remap= false, mode="t" },
-		{ "<C-t>", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap= false, mode="n" },
+		-- 终端 t 终端模式
+		{ "<ESC>", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
+		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap = false, mode = "n" },
+		{ "<leader>tf", "<cmd>lua require('config.terminal').ToggleFloatTerminal()<cr>", desc = "切换浮动终端", remap = false, mode = "n" },
 	})
 	wk.add(iMappings)
 	wk.add(vMappings)
