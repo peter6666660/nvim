@@ -30,8 +30,8 @@ function M.lua_ls()
 	})
 end
 -- tsserver
-function M.tsserver()
-	lspconfig.tsserver.setup({
+function M.ts_ls()
+	lspconfig.ts_ls.setup({
 		init_options = {
 			plugins = {
 				-- 支持vue3
@@ -76,7 +76,7 @@ function M.setup(lsp)
 	-- 手动配置的lsp
 	M.lua_ls()
 	M.volar()
-	M.tsserver()
+	M.ts_ls()
 end
 
 return M

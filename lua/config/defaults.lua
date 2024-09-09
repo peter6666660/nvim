@@ -33,7 +33,7 @@ M.setup = function(callback)
 		require("config.machine_specific")
 		vim.defer_fn(function()
 			callback()
-		end, 0)
+		end, 100)
 	end)
 end
 
