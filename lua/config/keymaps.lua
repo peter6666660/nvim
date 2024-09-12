@@ -95,7 +95,7 @@ M.setup = function()
 		{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
 
 		-- 终端 t 终端模式
-		{ "jk", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
+		{ "<leader>jk", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
 		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap = false, mode = "n" },
 		{
 			"<leader>tf",
