@@ -95,9 +95,15 @@ M.setup = function()
 		{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
 
 		-- 终端 t 终端模式
-		{ "<ESC>", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
+		{ "jk", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
 		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap = false, mode = "n" },
-		{ "<leader>tf", "<cmd>lua require('config.terminal').ToggleFloatTerminal()<cr>", desc = "切换浮动终端", remap = false, mode = "n" },
+		{
+			"<leader>tf",
+			"<cmd>lua require('config.terminal').ToggleFloatTerminal()<cr>",
+			desc = "切换浮动终端",
+			remap = false,
+			mode = "n",
+		},
 	})
 	wk.add(iMappings)
 	wk.add(vMappings)
