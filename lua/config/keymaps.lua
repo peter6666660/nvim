@@ -5,6 +5,9 @@ end
 
 local M = {}
 
+-- mac 下支持 Cmd+v粘贴
+vim.api.nvim_set_keymap("n", "<D-v>", '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<D-v>", "<C-r>+", { noremap = true, silent = true })
 -- 复制到剪切板
 vim.api.nvim_set_keymap("v", "d", '"+d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true, silent = true })
