@@ -120,6 +120,7 @@ bob list
 - [x] 浮动终端 leader + tt | leader + tf
 - [x] 管理文件 nvim-tree
 - [x] lsp-zero 管理 lsp
+- [x] markdown预览 leader + mv
 - [x] [自定义命令](#自定义命令)
 - [x] telescope
   - [x] 搜索文件、历史记录、文档
