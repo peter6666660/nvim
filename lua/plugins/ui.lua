@@ -131,4 +131,10 @@ return {
 			require("todo-comments").setup()
 		end,
 	},
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
 }

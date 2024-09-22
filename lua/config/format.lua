@@ -18,10 +18,14 @@ end
 -- 添加命令到 Neovim
 M.setCMD = function()
 	vim.api.nvim_create_user_command("FormatOpenCurrentFile", function()
+		local filetype = vim.fn.expand("%:e") -- 获取当前文件的扩展名
 		M.add_autocmd_for_current_file()
+		vim.notify(filetype .. "开启格式化成功", vim.log.levels.INFO, { title = "Format" })
 	end, {})
 
 	vim.api.nvim_create_user_command("FormatCloseCurrentFile", function()
+		local filetype = vim.fn.expand("%:e") -- 获取当前文件的扩展名
+		vim.notify(filetype .. "关闭格式化成功", vim.log.levels.INFO, { title = "Format" })
 		M.remove_autocmd_for_current_file()
 	end, {})
 end
