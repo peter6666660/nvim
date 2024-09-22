@@ -1,6 +1,22 @@
 local M = {}
 local autocmd_map = {} -- 用来保存创建的自动命令的映射关系
 
+M.setOptions = function()
+	vim.g.neoformat_enabled_c = { "clangformat" }
+	vim.g.neoformat_enabled_cpp = { "clangformat" }
+
+	vim.g.neoformat_c_clangformat = {
+		exe = "clang-format",
+		args = { "-style=file" },
+		stdin = 1,
+	}
+
+	vim.g.neoformat_cpp_clangformat = {
+		exe = "clang-format",
+		args = { "-style=file" },
+		stdin = 1,
+	}
+end
 -- 公共方法：创建自动命令
 M.create_autocmd = function(pattern)
 	local id = vim.api.nvim_create_autocmd("BufWritePre", {
@@ -32,6 +48,7 @@ end
 
 -- 创建自动命令的函数
 M.setup = function()
+	M.setOptions()
 	M.setCMD()
 	-- 格式化文件
 	local fileTypeList = vim.g.autoformat_type_list

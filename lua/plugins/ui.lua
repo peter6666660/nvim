@@ -54,6 +54,9 @@ return {
 		run = ":TSUpdate",
 		config = function()
 			require("nvim-treesitter.configs").setup({
+				fold = {
+					enable = true,
+				},
 				ensure_installed = {
 					"bash",
 					"c",
