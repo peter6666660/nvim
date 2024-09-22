@@ -3,6 +3,8 @@ if not status then
 	return
 end
 
+local constants = require("lua.constants")
+
 local M = {}
 
 -- mac 下支持 Cmd+v粘贴
@@ -16,6 +18,39 @@ vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 -- 快速文档中跳转hop插件
 vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", { noremap = true, silent = true })
 
+-- 全局快捷键
+local globalMappings = {
+	-- 分屏切换
+	{ "<C-h>", "<C-w>h", desc = "切换到左分屏" },
+	{ "<C-l>", "<C-w>l", desc = "切换到右分屏" },
+	{ "<C-j>", "<C-w>j", desc = "切换到上分屏" },
+	{ "<C-k>", "<C-w>k", desc = "切换到下分屏" },
+	-- tab
+	-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
+	-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
+	{ "<Tab>", ":bn <CR>", desc = "切换到下一个tab" },
+	{ "<S-Tab>", ":bp <CR>", desc = "切换到上一个tab" },
+	{ "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
+	{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
+
+	-- 终端 t 终端模式
+	{ "<leader>jk", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
+	{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap = false, mode = "n" },
+	{
+		"<leader>tf",
+		"<cmd>lua require('config.terminal').ToggleFloatTerminal()<cr>",
+		desc = "切换浮动终端",
+		remap = false,
+		mode = "n",
+	},
+	{
+		"<leader>df",
+		":e" .. constants.DEFAULT_CONFIG_PATH .. "<CR>",
+		desc = "编辑默认配置",
+		remap = false,
+		mode = "n",
+	},
+}
 --普通模式下的快捷键
 local nMappings = {
 	-- 文件树
@@ -53,6 +88,9 @@ local nMappings = {
 	{ "<leader>gg", ":LazyGit <CR>", desc = "lazyGit", remap = false },
 	{ "<leader>gd", ":Gitsigns diffthis<CR>", desc = "git diff", remap = false, mode = "n" },
 
+	-- markdown view
+	{ "<leader>mv", ":Markview<CR>", desc = "markdown预览切换", remap = false, mode = "n" },
+
 	-- lspsaga.nvim 相关 gd gD gr gk等
 	{ "gd", ":Lspsaga goto_definition<CR>", desc = "跳转到定义", remap = false, mode = "n" },
 	{ "gD", ":Lspsaga goto_definition<CR>", desc = "跳转到定义的类型", remap = false, mode = "n" },
@@ -83,31 +121,7 @@ local vMappings = {
 
 M.setup = function()
 	wk.setup()
-	wk.add({
-		-- 分屏切换
-		{ "<C-h>", "<C-w>h", desc = "切换到左分屏" },
-		{ "<C-l>", "<C-w>l", desc = "切换到右分屏" },
-		{ "<C-j>", "<C-w>j", desc = "切换到上分屏" },
-		{ "<C-k>", "<C-w>k", desc = "切换到下分屏" },
-		-- tab
-		-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
-		-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
-		{ "<Tab>", ":bn <CR>", desc = "切换到下一个tab" },
-		{ "<S-Tab>", ":bp <CR>", desc = "切换到上一个tab" },
-		{ "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
-		{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
-
-		-- 终端 t 终端模式
-		{ "<leader>jk", "<C-\\><C-n>", desc = "退出到终端模式", remap = false, mode = "t" },
-		{ "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "切换终端", remap = false, mode = "n" },
-		{
-			"<leader>tf",
-			"<cmd>lua require('config.terminal').ToggleFloatTerminal()<cr>",
-			desc = "切换浮动终端",
-			remap = false,
-			mode = "n",
-		},
-	})
+	wk.add(globalMappings)
 	wk.add(iMappings)
 	wk.add(vMappings)
 	wk.add(nMappings)

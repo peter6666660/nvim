@@ -1,11 +1,11 @@
-local config_path = vim.fn.stdpath("config") -- 获取 nvim 的标准目录路径
+local constants = require("lua.constants") -- 默认配置文件
 
 local M = {}
 
 -- 文件路径
-local primary_path = config_path .. "/lua/config/machine_specific.lua"
+local primary_path = constants.DEFAULT_CONFIG_PATH
 -- 本地默认配置文件
-local fallback_path = config_path .. "/default_config/_machine_specific_default.lua"
+local fallback_path = constants.DEFAULT_CONFIG_PATH_TEMPLATE
 
 local function file_exists(path)
 	local co = coroutine.running()
