@@ -32,7 +32,7 @@
 | FormatOpenCurrentFile  | 开启当前文件格式化 | lua/config/format.lua |
 | FormatCloseCurrentFile | 关闭当前文件格式化 | lua/config/format.lua |
 
-### [使用bob关闭neovim版本](https://github.com/MordechaiHadad/bob)
+### [使用bob管理neovim版本](https://github.com/MordechaiHadad/bob)
 
 ```bash
 cargo install --git https://github.com/MordechaiHadad/bob.git
