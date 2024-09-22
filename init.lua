@@ -1,29 +1,20 @@
--- 检查 Neovim 版本是否至少为 x.xx.x
--- local function check_minimum_version(major, minor, patch)
--- 	local version = vim.version()
--- 	if
--- 		version.major < major
--- 		or (version.major == major and version.minor < minor)
--- 		or (version.major == major and version.minor == minor and version.patch < patch)
--- 	then
--- 		vim.api.nvim_err_writeln(
--- 			"Neovim version " .. major .. "." .. minor .. "." .. patch .. " or higher is required!"
--- 		)
---
--- 		vim.defer_fn(function()
--- 			vim.cmd("quit")
--- 		end, 1000)
--- 	else
--- 		require("config.lazy")
--- 	end
--- end
-
-function loadLazy()
+local function loadLazy()
 	require("config.lazy")
 end
 
--- 默认配置
-require("config.defaults").setup(loadLazy)
+-- -- 默认配置
+-- require("config.defaults").setup(loadLazy)
 
--- 设定最低版本为 0.10.0
--- check_minimum_version(0, 6, 0)
+local co_default_config = require("config.defaults").setup()
+
+local function wait_for_load()
+	while coroutine.status(co_default_config) ~= "dead" do
+		vim.wait(100)
+	end
+end
+
+-- 等待配置文件加载成功
+wait_for_load()
+
+-- 加载lazy
+loadLazy()
