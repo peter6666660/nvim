@@ -1,4 +1,4 @@
-local constants = require("lua.constants") -- 默认配置文件
+local constants = require("constants") -- 默认配置文件
 
 local M = {}
 

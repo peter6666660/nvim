@@ -3,7 +3,7 @@ if not status then
 	return
 end
 
-local constants = require("lua.constants")
+local constants = require("constants")
 
 local M = {}
 
