@@ -99,6 +99,9 @@ bob list
 - [x] which-key 管理快捷键
 - [x] nvim-treesitter 管理 语法高亮
 - [x] tab切换文件缓冲区(bufferline)
+- [-] LSP
+  - [x] TS vue js
+  - [] c c++ 配置表格式化
 
 ### lsp-tsserver
 
