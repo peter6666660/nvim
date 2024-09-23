@@ -21,10 +21,10 @@ vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", { norema
 -- 全局快捷键
 local globalMappings = {
 	-- 分屏切换
-	{ "<C-h>", "<C-w>h", desc = "切换到左分屏" },
-	{ "<C-l>", "<C-w>l", desc = "切换到右分屏" },
-	{ "<C-j>", "<C-w>j", desc = "切换到上分屏" },
-	{ "<C-k>", "<C-w>k", desc = "切换到下分屏" },
+	{ "<C-h>", "<C-w>h", desc = "切换到左分屏", remap = false },
+	{ "<C-l>", "<C-w>l", desc = "切换到右分屏", remap = false },
+	{ "<C-j>", "<C-w>j", desc = "切换到上分屏", remap = false },
+	{ "<C-k>", "<C-w>k", desc = "切换到下分屏", remap = false },
 	-- tab
 	-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
 	-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
@@ -50,6 +50,10 @@ local globalMappings = {
 		remap = false,
 		mode = "n",
 	},
+	{ "<A-Right>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
+	{ "<A-Left>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
+	{ "<A-Up>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
+	{ "<A-Down>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
 }
 --普通模式下的快捷键
 local nMappings = {

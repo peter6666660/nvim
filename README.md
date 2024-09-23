@@ -77,7 +77,7 @@ bob list
 
 - [] AI
 - [] DAP
-- [] 支持动态调整splitv 和 文件管理器 的宽度大小
+- [x] 支持动态调整splitv 和 文件管理器 的宽度大小
 - [x] 支持折叠: nvim-ufo
 - [x] notify 美化提示
 - [x] 本地化配置文件 - leader + df (打开配置文件)
