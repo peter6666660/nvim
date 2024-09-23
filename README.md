@@ -75,11 +75,13 @@ bob list
 
 ### 功能列表
 
-- [] AI
+- [] AI 辅助开发
 - [] DAP
+- [] 自定义代片段
 - [x] 支持动态调整splitv 和 文件管理器 的宽度大小
 - [x] 支持折叠: nvim-ufo
 - [x] notify 美化提示
+- [x] 单词翻译 leader + tt
 - [x] 本地化配置文件 - leader + df (打开配置文件)
 - [x] 浮动终端 leader + tt | leader + tf
 - [x] 管理文件 nvim-tree
