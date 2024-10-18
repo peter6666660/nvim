@@ -1,7 +1,7 @@
 -- ~/.config/nvim/lua/plugins/completion.lua
 return {
 	"hrsh7th/nvim-cmp",
-  event = "InsertEnter", -- 只有键入的时候才启动cmp
+	event = "InsertEnter", -- 只有键入的时候才启动cmp
 	dependencies = {
 		-- source - 增加lsp的变量
 		"hrsh7th/cmp-nvim-lsp",
@@ -70,16 +70,17 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "tailwindcss" },
 				{ name = "nvim_lua" },
 				{ name = "luasnip" },
 				{ name = "path" },
 			}, {
 				{ name = "buffer" },
 			}),
-      window = {
-         completion = cmp.config.window.bordered(),
-         documentation = cmp.config.window.bordered(),
-      },
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			-- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
