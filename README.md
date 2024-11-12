@@ -144,6 +144,13 @@ bob list
 - Ctrl + q 把搜索文件保存到 quickfix中
 - cdo | cfdo 进行替换 eg: cdo /oldText/newText/g | update
 
+### 常见问题
+
+- 如果碰到ts正则语法提示错误导致高亮识别，优先清除缓存
+    - rm -rf ~/.cache/nvim 
+    - rm -rf ~/.local/share/nvim
+
+
 ### logs
 
 - 2024-09-22 配置文件改为协程管理流程
