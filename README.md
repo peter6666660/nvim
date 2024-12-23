@@ -104,6 +104,9 @@ bob list
 - [-] LSP
   - [x] TS vue js
   - [] c c++ 配置表格式化
+  - [] lsp语法错误提示 ts 会重复，而且不能复制
+- [-] Mason
+  - [] 需要支持自动下载Format插件 比如： js, lua 的format, markdown
 
 ### lsp-tsserver
 
@@ -147,9 +150,8 @@ bob list
 ### 常见问题
 
 - 如果碰到ts正则语法提示错误导致高亮识别，优先清除缓存
-    - rm -rf ~/.cache/nvim 
-    - rm -rf ~/.local/share/nvim
-
+  - rm -rf ~/.cache/nvim
+  - rm -rf ~/.local/share/nvim
 
 ### logs
 

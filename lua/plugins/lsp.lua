@@ -56,7 +56,14 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 		config = function()
-			require("lspsaga").setup({})
+      require("lspsaga").setup({
+    diagnostic = {
+          show_code_action = false, -- 关闭重复显示
+          keys = {
+            quit = "<Esc>",
+          },
+        },
+      })
 		end,
 	},
 }
