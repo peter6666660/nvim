@@ -77,7 +77,7 @@ function M.cssls()
 	})
 end
 
-function M.setup(lsp)
+function M.setup()
 	-- 自动加载配置的lsp
 	for _, value in ipairs(M.lspNameList) do
 		if lspconfig[value] ~= nil then

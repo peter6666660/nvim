@@ -1,7 +1,13 @@
 local status, wk = pcall(require, "which-key")
+local utils = require("config.utils")
+local telescope = require("config.telescope")
 if not status then
 	return
 end
+
+-- noremap = true：禁用递归映射，防止映射命令被其他映射影响，通常是推荐的做法。
+-- remap = false：启用递归映射，映射的命令会触发已定义的其他映射。
+-- silent = true：执行映射时不会显示命令的输出，避免干扰屏幕输出。
 
 local constants = require("constants")
 
@@ -86,6 +92,22 @@ local nMappings = {
 	{ "<leader>fh", ":Telescope help_tags<CR>", desc = "搜索文档", remap = false },
 	{ "<leader>fr", ":Telescope oldfiles<CR>", desc = "最近打开的文件", remap = false },
 	{ "<leader>fq", ":Telescope quickfix<CR>", desc = "Quickfix列表(给cfdo使用)", remap = false, mode = "n" },
+	{
+		"<leader>fd",
+		telescope.openDiagnostics,
+		desc = "打开诊断信息",
+		noremap = true,
+		silent = true,
+		mode = "n",
+	},
+	{
+		"<leader>fD",
+		utils.openDiagnostics,
+		desc = "查看诊断信息病复制",
+		noremap = true,
+		silent = true,
+		mode = "n",
+	},
 
 	-- git
 	{ "<leader>g", group = "Git", remap = false },

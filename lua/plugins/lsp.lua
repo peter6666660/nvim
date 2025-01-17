@@ -45,7 +45,7 @@ return {
 
 			-- 自定义lsp
 			local lspCustomconfig = require("config.lsp")
-			lspCustomconfig.setup(lsp_zero)
+			lspCustomconfig.setup()
 		end,
 	},
 	--  美化lsp提示
@@ -56,14 +56,14 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 		config = function()
-      require("lspsaga").setup({
-    diagnostic = {
-          show_code_action = false, -- 关闭重复显示
-          keys = {
-            quit = "<Esc>",
-          },
-        },
-      })
+			require("lspsaga").setup({
+				diagnostic = {
+					show_code_action = false, -- 关闭重复显示
+					keys = {
+						quit = "<Esc>",
+					},
+				},
+			})
 		end,
 	},
 }

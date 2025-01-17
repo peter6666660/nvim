@@ -2,6 +2,25 @@
 
 ## 插件
 
+### 快捷键说明
+
+| 快捷键                          | 说明                               |
+| ------------------------------- | ---------------------------------- |
+| Control + h                     | 切换到左分屏                       |
+| Control + l                     | 切换到右分屏                       |
+| Control + j                     | 切换到上分屏                       |
+| Control + k                     | 切换到下分屏                       |
+| (Option/Alt) + 方向键(上下左右) | 调整分屏尺寸                       |
+| <Tab>                           | 切换下一个Tab                      |
+| Shift + <Tab>                   | 切换上一个Tab                      |
+| <leader>tt                      | 切换终端小窗口                     |
+| <leader>tf                      | 切换浮动终端                       |
+| <leader>jk                      | 退出到终端模式                     |
+| <leader>w                       | 保存文件                           |
+| <leader>q                       | 关闭文件                           |
+| <leader>fd                      | 通过telescope 查看缓存区的所有诊断 |
+| <leader>fD                      | vim浮窗查看当前诊断并复制到剪切板  |
+
 ### lazy懒加载控制
 
 | 类型 | key   | 值          | 说明                           |
@@ -103,8 +122,9 @@ bob list
 - [x] tab切换文件缓冲区(bufferline)
 - [-] LSP
   - [x] TS vue js
+  - [x] lsp语法错误提示 ts 会重复，而且不能复制
+  - [x] lsp诊断信息支持telescope查看，和浮窗查看并粘贴 (leader + fd | leader+fD)
   - [] c c++ 配置表格式化
-  - [] lsp语法错误提示 ts 会重复，而且不能复制
 - [-] Mason
   - [] 需要支持自动下载Format插件 比如： js, lua 的format, markdown
 
