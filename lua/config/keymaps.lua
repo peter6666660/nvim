@@ -124,6 +124,13 @@ local nMappings = {
 	{ "gf", ":Lspsaga finder<CR>", desc = "跳转到引用", remap = false, mode = "n" },
 	{ "gk", ":Lspsaga peek_definition<CR>", desc = "预览定义", remap = false, mode = "n" },
 	{ "K", ":Lspsaga hover_doc<CR>", desc = "hover doc", remap = false, mode = "n" },
+	{
+		"<leader>ca",
+		":Lspsaga code_action<CR>",
+		desc = "如修复错误、优化代码等",
+		remap = false,
+		mode = { "n", "v" },
+	},
 
 	-- 取消高亮
 	{ "<leader><CR>", ":nohlsearch<cr>", desc = "取消高亮", remap = false, mode = "n" },

@@ -172,6 +172,7 @@ bob list
 - 如果碰到ts正则语法提示错误导致高亮识别，优先清除缓存
   - rm -rf ~/.cache/nvim
   - rm -rf ~/.local/share/nvim
+- lsp虚拟文本是不支持换行的
 
 ### logs
 
