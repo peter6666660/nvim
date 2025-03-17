@@ -91,12 +91,13 @@ bob list
 | [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim)   | \*              | 日历/时钟              |
 | [OXY2DEV/markview.nvim](https://github.com/OXY2DEV/markview.nvim) | v20.1.0         | neovim 中 预览markdown |
 | [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)   | -               | 美化日志提示           |
+| [nomnivore/ollama.nvim](https://github.com/nomnivore/ollama.nvim) | -               | 对接本地ollama api     |
 
 ### 功能列表
 
-- [] AI 辅助开发
 - [] DAP
 - [] 自定义代片段
+- [x] AI 辅助开发 (ollama)
 - [x] 支持动态调整splitv 和 文件管理器 的宽度大小
 - [x] 支持折叠: nvim-ufo
 - [x] notify 美化提示
@@ -127,6 +128,7 @@ bob list
   - [] c c++ 配置表格式化
 - [-] Mason
   - [] 需要支持自动下载Format插件 比如： js, lua 的format, markdown
+- [x] neovim 粘贴的时候,会自动注释和合并 -- bug
 
 ### lsp-tsserver
 
