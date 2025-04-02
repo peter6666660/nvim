@@ -91,7 +91,7 @@ bob list
 | [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim)   | \*              | 日历/时钟              |
 | [OXY2DEV/markview.nvim](https://github.com/OXY2DEV/markview.nvim) | v20.1.0         | neovim 中 预览markdown |
 | [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)   | -               | 美化日志提示           |
-| [nomnivore/ollama.nvim](https://github.com/nomnivore/ollama.nvim) | -               | 对接本地ollama api     |
+| [yetone/avante.nvim](https://github.com/yetone/avante.nvim)       | -               | 对接本地ollama api     |
 
 ### 功能列表
 
