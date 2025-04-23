@@ -27,3 +27,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=markdown",
 	group = "MdxFileType",
 })
+
+-- ai mcp
+vim.g.mcphub_auto_approve = true

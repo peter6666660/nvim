@@ -23,12 +23,14 @@
 
 ### lazy懒加载控制
 
-| 类型 | key   | 值          | 说明                           |
-| ---- | ----- | ----------- | ------------------------------ |
-| 事件 | event | BufNewFile  | 打开新文件                     |
-| 事件 | event | BufReadPre  | 在开始读取缓冲区内容之前触发。 |
-| 事件 | event | BufReadPost | 在缓冲区内容读取完成之后触发。 |
-| 命令 | cmd   | <CMD>       | 输入的命令 eg: Telescope       |
+| 类型 | key   | 值                                                 | 说明                                                                        |
+| ---- | ----- | -------------------------------------------------- | --------------------------------------------------------------------------- |
+| 事件 | event | BufNewFile                                         | 打开新文件                                                                  |
+| 事件 | event | BufReadPre                                         | 在开始读取缓冲区内容之前触发。                                              |
+| 事件 | event | BufReadPost                                        | 在缓冲区内容读取完成之后触发。                                              |
+| 事件 | event | BufEnter, BufWinEnter, FileType, Syntax , VimEnter | Autocmd事件                                                                 |
+| 事件 | event | VeryLazy                                           | 在UIEnter只有通过vim.schedule发出VeryLazy事件，适合那些不影响收评渲染的插件 |
+| 命令 | cmd   | <CMD>                                              | 输入的命令 eg: Telescope                                                    |
 
 ### plugins文件管理及说明
 
@@ -106,7 +108,7 @@ bob list
 - [x] 浮动终端 leader + tt | leader + tf
 - [x] 管理文件 nvim-tree
 - [x] lsp-zero 管理 lsp
-- [x] markdown预览 leader + mv
+- [x] markdown预览 leader + mv 废弃
 - [x] [自定义命令](#自定义命令)
 - [x] telescope
   - [x] 搜索文件、历史记录、文档
