@@ -137,10 +137,11 @@ return {
 			require("todo-comments").setup()
 		end,
 	},
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
-		end,
-	},
+	-- 左上角错误提示
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function()
+	-- 		vim.notify = require("notify")
+	-- 	end,
+	-- },
 }

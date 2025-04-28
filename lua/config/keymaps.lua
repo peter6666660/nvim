@@ -56,10 +56,10 @@ local globalMappings = {
 		remap = false,
 		mode = "n",
 	},
-	{ "<A-Right>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
-	{ "<A-Left>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
-	{ "<A-Up>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
-	{ "<A-Down>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
+	{ "<A-h>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
+	{ "<A-l>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
+	{ "<A-k>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
+	{ "<A-j>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
 }
 --普通模式下的快捷键
 local nMappings = {
