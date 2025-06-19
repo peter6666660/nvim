@@ -38,13 +38,13 @@ return {
 		end,
 	},
 	-- 翻译工具
-	{
-		"voldikss/vim-translator",
-		cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
-		init = function()
-			vim.g.translator_default_engines = { "bing", "haici", "youdao", "google" }
-		end,
-	},
+	-- {
+	-- 	"voldikss/vim-translator",
+	-- 	cmd = { "Translate", "TranslateV", "TranslateW", "TranslateWV", "TranslateR", "TranslateRV", "TranslateX" },
+	-- 	init = function()
+	-- 		vim.g.translator_default_engines = { "bing", "haici", "youdao", "google" }
+	-- 	end,
+	-- },
 	-- markdown 预览
 	-- {
 	-- 	"OXY2DEV/markview.nvim",
