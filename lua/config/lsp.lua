@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.lspNameList = { "marksman", "clangd", "bashls", "tailwindcss", "pylsp" }
+M.lspNameList = { "marksman", "clangd", "bashls", "pylsp" }
 
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
@@ -72,6 +72,13 @@ function M.cssls()
 				lint = {
 					unknownAtRules = "ignore",
 				},
+			},
+		},
+	})
+	lspconfig.tailwindcss.setup({
+		settings = {
+			tailwindCSS = {
+				classFunctions = { "cva", "clsx" },
 			},
 		},
 	})
