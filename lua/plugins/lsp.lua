@@ -34,8 +34,8 @@ return {
 				automatic_installation = true,
 			})
 			require("mason-lspconfig").setup({
-        automatic_enable = false,
-				ensure_installed = { "lua_ls", "ts_ls", "cssls", "marksman", "clangd", "bashls", "pylsp", "tailwindcss" },
+				automatic_enable = false,
+				ensure_installed = { "lua_ls", "ts_ls", "cssls", "marksman", "clangd", "bashls", "pylsp", "ruff" },
 				-- 自动加载lsp 先注释
 				-- handlers = {
 				--   function(server_name)
