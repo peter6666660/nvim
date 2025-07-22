@@ -1,110 +1,110 @@
 return {
 	-- INFO: MCP
-	{
-		"ravitemer/mcphub.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-		},
-		build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
-		config = function()
-			require("mcphub").setup({
-				-- port = 37373,
-				config = vim.fn.expand("~/.config/nvim/mcpServers.json"),
-				auto_approve = true,
-				extensions = {
-					avante = {
-						make_slash_commands = true, -- make /slash commands from MCP server prompts
-					},
-				},
-				shutdown_delay = 0, -- Wait 0ms before shutting down server after last client exits
-				log = {
-					level = vim.log.levels.WARN,
-					to_file = false,
-					file_path = nil,
-					prefix = "MCPHub",
-				},
-			})
-		end,
-	},
-	-- INFO: Chart
-	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		version = false, -- 永远不要将此值设置为 "*"！永远不要！
-		build = "make",
-
-		dependencies = {
-			"ravitemer/mcphub.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-
-			"echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
-			"nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
-			"hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
-			"ibhagwan/fzf-lua", -- 用于文件选择器提供者 fzf
-			"nvim-tree/nvim-web-devicons", -- 或 echasnovski/mini.icons
-			{
-				-- 支持图像粘贴
-				"HakonHarnes/img-clip.nvim",
-				event = "VeryLazy",
-				opts = {
-					default = {
-						embed_image_as_base64 = false,
-						prompt_for_file_name = false,
-						drag_and_drop = {
-							insert_mode = true,
-						},
-						use_absolute_path = true,
-					},
-				},
-			},
-			{
-				-- 如果您有 lazy=true，请确保正确设置
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					file_types = { "markdown", "Avante" },
-				},
-				ft = { "markdown", "Avante" },
-			},
-		},
-		opts = {
-			openai = {
-				endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-				model = "qwen2.5-coder-14b-instruct", -- 您想要的模型（或使用 gpt-4o 等）
-				timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
-				extra_request_body = {
-					temperature = 0,
-					max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-					reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-				},
-			},
-			system_prompt = function()
-				local hub = require("mcphub").get_hub_instance()
-				if hub and hub:is_ready() then
-					return hub:get_active_servers_prompt()
-				else
-					return "Default system prompt."
-				end
-			end,
-			custom_tools = function()
-				return {
-					require("mcphub.extensions.avante").mcp_tool(),
-				}
-			end,
-			disabled_tools = {
-				"list_files",
-				"search_files",
-				"read_file",
-				"create_file",
-				"rename_file",
-				"delete_file",
-				"create_dir",
-				"rename_dir",
-				"delete_dir",
-				"bash",
-			},
-		},
-	},
+	-- {
+	-- 	"ravitemer/mcphub.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
+	-- 	},
+	-- 	build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+	-- 	config = function()
+	-- 		require("mcphub").setup({
+	-- 			-- port = 37373,
+	-- 			config = vim.fn.expand("~/.config/nvim/mcpServers.json"),
+	-- 			auto_approve = true,
+	-- 			extensions = {
+	-- 				avante = {
+	-- 					make_slash_commands = true, -- make /slash commands from MCP server prompts
+	-- 				},
+	-- 			},
+	-- 			shutdown_delay = 0, -- Wait 0ms before shutting down server after last client exits
+	-- 			log = {
+	-- 				level = vim.log.levels.WARN,
+	-- 				to_file = false,
+	-- 				file_path = nil,
+	-- 				prefix = "MCPHub",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+	-- -- INFO: Chart
+	-- {
+	-- 	"yetone/avante.nvim",
+	-- 	event = "VeryLazy",
+	-- 	version = false, -- 永远不要将此值设置为 "*"！永远不要！
+	-- 	build = "make",
+	--
+	-- 	dependencies = {
+	-- 		"ravitemer/mcphub.nvim",
+	-- 		"nvim-treesitter/nvim-treesitter",
+	-- 		"stevearc/dressing.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	--
+	-- 		"echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
+	-- 		"nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
+	-- 		"hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
+	-- 		"ibhagwan/fzf-lua", -- 用于文件选择器提供者 fzf
+	-- 		"nvim-tree/nvim-web-devicons", -- 或 echasnovski/mini.icons
+	-- 		{
+	-- 			-- 支持图像粘贴
+	-- 			"HakonHarnes/img-clip.nvim",
+	-- 			event = "VeryLazy",
+	-- 			opts = {
+	-- 				default = {
+	-- 					embed_image_as_base64 = false,
+	-- 					prompt_for_file_name = false,
+	-- 					drag_and_drop = {
+	-- 						insert_mode = true,
+	-- 					},
+	-- 					use_absolute_path = true,
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 		{
+	-- 			-- 如果您有 lazy=true，请确保正确设置
+	-- 			"MeanderingProgrammer/render-markdown.nvim",
+	-- 			opts = {
+	-- 				file_types = { "markdown", "Avante" },
+	-- 			},
+	-- 			ft = { "markdown", "Avante" },
+	-- 		},
+	-- 	},
+	-- 	opts = {
+	-- 		openai = {
+	-- 			endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1",
+	-- 			model = "qwen2.5-coder-14b-instruct", -- 您想要的模型（或使用 gpt-4o 等）
+	-- 			timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
+	-- 			extra_request_body = {
+	-- 				temperature = 0,
+	-- 				max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+	-- 				reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+	-- 			},
+	-- 		},
+	-- 		system_prompt = function()
+	-- 			local hub = require("mcphub").get_hub_instance()
+	-- 			if hub and hub:is_ready() then
+	-- 				return hub:get_active_servers_prompt()
+	-- 			else
+	-- 				return "Default system prompt."
+	-- 			end
+	-- 		end,
+	-- 		custom_tools = function()
+	-- 			return {
+	-- 				require("mcphub.extensions.avante").mcp_tool(),
+	-- 			}
+	-- 		end,
+	-- 		disabled_tools = {
+	-- 			"list_files",
+	-- 			"search_files",
+	-- 			"read_file",
+	-- 			"create_file",
+	-- 			"rename_file",
+	-- 			"delete_file",
+	-- 			"create_dir",
+	-- 			"rename_dir",
+	-- 			"delete_dir",
+	-- 			"bash",
+	-- 		},
+	-- 	},
+	-- },
 }
