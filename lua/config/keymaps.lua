@@ -111,7 +111,7 @@ local nMappings = {
 
 	-- git
 	{ "<leader>g", group = "Git", remap = false },
-	{ "<leader>gg", ":LazyGit <CR>", desc = "lazyGit", remap = false },
+	{ "<leader>gg", ":LazygitToggle <CR>", desc = "lazyGit", remap = false },
 	{ "<leader>gd", ":Gitsigns diffthis<CR>", desc = "git diff", remap = false, mode = "n" },
 
 	-- markdown view

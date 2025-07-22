@@ -5,7 +5,7 @@ vim.opt.shiftwidth = 2
 
 vim.g.neovide_transparency = 0.8 -- 设置透明度为 80%
 
--- 配置折叠方式
+--配置折叠方式
 vim.o.foldenable = true -- 开启折叠
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
@@ -27,3 +27,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=markdown",
 	group = "MdxFileType",
 })
+
+vim.api.nvim_create_user_command("LazygitToggle", function()
+	require("lua.lib.lazygit").LAZYGIT_TOGGLE()
+end, {})
