@@ -5,7 +5,7 @@ end
 
 local M = {}
 
-M.lspNameList = { "marksman", "clangd", "bashls", "pylsp" }
+M.lspNameList = { "marksman", "clangd", "bashls", "eslint" }
 
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
@@ -78,7 +78,29 @@ function M.cssls()
 	lspconfig.tailwindcss.setup({
 		settings = {
 			tailwindCSS = {
-				classFunctions = { "cva", "clsx" },
+				classFunctions = { "cva", "clsx", "cn" },
+			},
+		},
+	})
+end
+
+-- pylsp
+function M.pylsp()
+	lspconfig.pylsp.setup({
+		settings = {
+			pylsp = {
+				plugins = {
+					pycodestyle = {
+						ignore = { "W391" },
+						maxLineLength = 200,
+					},
+					rope_autoimport = {
+						enabled = true,
+						completions = { enabled = true }, -- 补全建议
+						code_actions = { enabled = true }, -- 插入 import
+					},
+					rope_completion = { enabled = true },
+				},
 			},
 		},
 	})
@@ -97,6 +119,7 @@ function M.setup()
 	M.volar()
 	M.ts_ls()
 	M.cssls()
+	M.pylsp()
 end
 
 return M
