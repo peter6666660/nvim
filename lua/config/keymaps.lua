@@ -115,7 +115,7 @@ local nMappings = {
 	{ "<leader>gd", ":Gitsigns diffthis<CR>", desc = "git diff", remap = false, mode = "n" },
 
 	-- markdown view
-	{ "<leader>mv", ":Markview<CR>", desc = "markdown预览切换", remap = false, mode = "n" },
+	-- { "<leader>mv", ":Markview<CR>", desc = "markdown预览切换", remap = false, mode = "n" },
 
 	-- lspsaga.nvim 相关 gd gD gr gk等
 	{ "gd", ":Lspsaga goto_definition<CR>", desc = "跳转到定义", remap = false, mode = "n" },
@@ -149,7 +149,7 @@ local iMappings = {
 }
 
 local vMappings = {
-	{ "tt", ":'<,'>TranslateW<CR>", desc = "选中翻译", remap = false, mode = "v" },
+	-- { "tt", ":'<,'>TranslateW<CR>", desc = "选中翻译", remap = false, mode = "v" },
 }
 
 M.setup = function()

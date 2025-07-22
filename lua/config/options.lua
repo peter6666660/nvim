@@ -29,5 +29,5 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_user_command("LazygitToggle", function()
-	require("lua.lib.lazygit").LAZYGIT_TOGGLE()
+	require("lib.lazygit").LAZYGIT_TOGGLE()
 end, {})
