@@ -36,4 +36,7 @@ lazy.setup({
 	install = { colorscheme = { "habamax" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
+	ui = {
+		check_outdated = false, -- UI 不显示更新提示
+	},
 })
