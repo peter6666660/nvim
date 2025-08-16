@@ -140,7 +140,7 @@ local nMappings = {
 	-- 时钟
 	{ "\\c", "<cmd>Calendar -view=clock<CR>", desc = "hover doc", remap = false, mode = "n" },
 	-- 翻译
-	{ "tt", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
+	-- { "tt", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
 }
 
 local iMappings = {
