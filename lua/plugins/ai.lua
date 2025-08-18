@@ -1,4 +1,8 @@
 return {
+	{
+		"Exafunction/windsurf.vim",
+		event = "BufEnter",
+	},
 	-- INFO: MCP
 	-- {
 	-- 	"ravitemer/mcphub.nvim",
