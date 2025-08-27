@@ -1,5 +1,6 @@
 local status, wk = pcall(require, "which-key")
 local utils = require("config.utils")
+local debug_config = require("config.debug")
 local telescope = require("config.telescope")
 if not status then
 	return
@@ -141,6 +142,10 @@ local nMappings = {
 	{ "\\c", "<cmd>Calendar -view=clock<CR>", desc = "hover doc", remap = false, mode = "n" },
 	-- 翻译
 	-- { "tt", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
+
+	-- debug
+
+	{ "<leader>dn", debug_config.debug_neovim, desc = "Debug Neovim", remap = false, mode = "n" },
 }
 
 local iMappings = {

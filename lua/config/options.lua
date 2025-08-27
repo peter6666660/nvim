@@ -31,3 +31,49 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_user_command("LazygitToggle", function()
 	require("lib.lazygit").LAZYGIT_TOGGLE()
 end, {})
+
+vim.fn.sign_define("DapBreakpoint", {
+	text = "●",
+	texthl = "DapBreakpoint",
+	linehl = "DapBreakpointLine",
+	numhl = "DapBreakpointNum",
+})
+
+vim.fn.sign_define("DapBreakpointCondition", {
+	text = "◆",
+	texthl = "DapBreakpointCondition",
+	linehl = "DapBreakpointConditionLine",
+	numhl = "DapBreakpointConditionNum",
+})
+
+vim.fn.sign_define("DapLogPoint", {
+	text = "◆",
+	texthl = "DapLogPoint",
+	linehl = "DapLogPointLine",
+	numhl = "DapLogPointNum",
+})
+
+vim.fn.sign_define("DapStopped", {
+	text = "▶",
+	texthl = "DapStopped",
+	linehl = "DapStoppedLine",
+	numhl = "DapStoppedNum",
+})
+
+vim.cmd([[
+  highlight DapBreakpoint guifg=#ff0000 guibg=NONE gui=bold
+  highlight DapBreakpointLine guibg=#ffcccc
+  highlight DapBreakpointNum guifg=#ff0000
+
+  highlight DapBreakpointCondition guifg=#ffcc00 guibg=NONE gui=bold
+  highlight DapBreakpointConditionLine guibg=#fff5cc
+  highlight DapBreakpointConditionNum guifg=#ffcc00
+
+  highlight DapLogPoint guifg=#00ff00 guibg=NONE gui=bold
+  highlight DapLogPointLine guibg=#ccffcc
+  highlight DapLogPointNum guifg=#00ff00
+
+  highlight DapStopped guifg=#0000ff guibg=NONE gui=bold
+  highlight DapStoppedLine guibg=#ccccff
+  highlight DapStoppedNum guifg=#0000ff
+]])
