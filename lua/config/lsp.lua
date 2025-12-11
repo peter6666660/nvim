@@ -106,6 +106,50 @@ function M.pylsp()
 	})
 end
 
+-- clangd
+function M.clangd()
+	lspconfig.clangd.setup({
+		-- capabilities = {
+		-- 	offsetEncoding = { "utf-8", "utf-16" },
+		-- 	textDocument = {
+		-- 		completion = {
+		-- 			editsNearCursor = true,
+		-- 		},
+		-- 	},
+		-- },
+		-- root_markers = {
+		-- 	".clangd",
+		-- 	".clang-tidy",
+		-- 	".clang-format",
+		-- 	"compile_commands.json",
+		-- 	"compile_flags.txt",
+		-- 	"configure.ac",
+		-- 	".git",
+		-- },
+		cmd = { "clangd", "--compile-commands-dir=." },
+		init_options = {
+			fallbackFlags = { "-Iinclude", "-Isrc" },
+		},
+	})
+end
+
+-- go
+function M.gopls()
+	lspconfig.gopls.setup({
+		cmd = { "gopls", "serve" },
+		settings = {
+			gopls = {
+				gofumpt = true, -- 使用更严格的 Go 代码格式化
+				analyses = {
+					unusedparams = true, -- 检查未使用的参数
+					fieldalignment = true, -- 自动对齐结构体字段
+				},
+				staticcheck = true,
+				directories = { "src" }, -- 确保项目根目录或指定目录优先
+			},
+		},
+	})
+end
 function M.setup()
 	-- 自动加载配置的lsp
 	for _, value in ipairs(M.lspNameList) do
@@ -120,6 +164,8 @@ function M.setup()
 	M.ts_ls()
 	M.cssls()
 	M.pylsp()
+	M.clangd()
+	M.gopls()
 end
 
 return M
