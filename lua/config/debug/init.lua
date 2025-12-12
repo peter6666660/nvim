@@ -4,6 +4,7 @@ M.dap = require("dap")
 M.set_adapters = function(dap)
 	require("config.debug.py_adapters").setup(dap)
 	require("config.debug.lua_adapters").setup(dap)
+	require("config.debug.dart_adapters").setup(dap)
 end
 
 function M.setup()
