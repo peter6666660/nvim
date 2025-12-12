@@ -5,7 +5,8 @@ end
 
 local M = {}
 
-M.lspNameList = { "marksman", "clangd", "bashls", "eslint" }
+-- dcmls: dart
+M.lspNameList = { "marksman", "clangd", "bashls", "eslint", "dartls" }
 
 function M.lua_ls()
 	lspconfig.lua_ls.setup({
