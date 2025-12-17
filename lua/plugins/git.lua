@@ -23,5 +23,5 @@ return {
 	-- 	end,
 	-- },
 	-- -- diff view
-	-- { "sindrets/diffview.nvim" },
+	{ "sindrets/diffview.nvim" },
 }
