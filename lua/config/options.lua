@@ -13,6 +13,10 @@ vim.o.foldcolumn = "2" -- '0' is not bad  显示折叠符号
 vim.o.signcolumn = "yes" -- 始终显示符号列
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+-- 不用 Perl 插件
+vim.g.loaded_perl_provider = 0
+-- 不用 Ruby 插件
+vim.g.loaded_ruby_provider = 0
 
 -- 使用 Nerd Font 图标来代替默认的icon
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
