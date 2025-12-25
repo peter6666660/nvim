@@ -12,34 +12,34 @@ return {
 		end,
 	},
 	-- 菜单
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim", -- neo-tree 所需依赖
-	-- 		"nvim-tree/nvim-web-devicons", -- 可选，提供文件图标支持
-	-- 		"MunifTanjim/nui.nvim", -- neo-tree 所需的 UI 库
-	-- 	},
-	-- 	init = function()
-	-- 		vim.g.loaded_netrw = 1
-	-- 		vim.g.loaded_netrwPlugin = 1
-	-- 	end,
-	-- 	config = function()
-	-- 		require("nvim-tree").setup({
-	-- 			git = {
-	-- 				ignore = false,
-	-- 			},
-	-- 			-- 目录中展示当前文件
-	-- 			update_focused_file = {
-	-- 				enable = true,
-	-- 				update_cwd = true, -- 展示当前的目录
-	-- 				ignore_list = {},
-	-- 			},
-	-- 			view = {
-	-- 				width = 45,
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- neo-tree 所需依赖
+			"nvim-tree/nvim-web-devicons", -- 可选，提供文件图标支持
+			"MunifTanjim/nui.nvim", -- neo-tree 所需的 UI 库
+		},
+		init = function()
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+		end,
+		config = function()
+			require("nvim-tree").setup({
+				git = {
+					ignore = false,
+				},
+				-- 目录中展示当前文件
+				update_focused_file = {
+					enable = true,
+					update_cwd = true, -- 展示当前的目录
+					ignore_list = {},
+				},
+				view = {
+					width = 45,
+				},
+			})
+		end,
+	},
 	-- tab
 	{
 		"akinsho/bufferline.nvim",

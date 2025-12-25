@@ -2,6 +2,8 @@
 
 > 准备用 mini.nvim 替换小插件
 
+### 替换的插件
+
 | 新               | 旧                                  | 说明                                              |
 | ---------------- | ----------------------------------- | ------------------------------------------------- |
 | mini.jump2d      | smoka7/hop.nvim                     | 跳转                                              |
@@ -11,9 +13,14 @@
 | mini.indentscope | lukas-reineke/indent-blankline.nvim | 缩进线                                            |
 | mini.statusline  | nvim-lualine/lualine.nvim           | 状态栏                                            |
 | mini.hipatterns  | folke/todo-comments.nvim            | 模式高亮（如 TODO / FIXME）                       |
-| mini.files       | nvim-tree/nvim-tree.lua             | 文件浏览 & 编辑 🗂                                |
 | mini.cursorword  | --                                  | 光标词高亮                                        |
 | mini.git         | --                                  | Git 相关集成                                      |
+
+### 放弃替换的插件
+
+| 新         | 旧                      | 说明                             |
+| ---------- | ----------------------- | -------------------------------- |
+| mini.files | nvim-tree/nvim-tree.lua | 文件浏览 & 编辑 🗂 (不能git高亮) |
 
 ## 插件
 

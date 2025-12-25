@@ -7,7 +7,8 @@ M.setup = function()
 	require("mini.cursorword").setup({})
 	require("mini.git").setup()
 	require("mini.statusline").setup({})
-	require("mini.files").setup({})
+	-- require("mini.files").setup({}) -- 放弃 不能git高亮
+	require("mini.starter").setup({})
 
 	M.hipatterns() -- TODO: 高亮
 	M.diff()
