@@ -9,8 +9,8 @@ vim.g.neovide_transparency = 0.8 -- 设置透明度为 80%
 vim.o.foldenable = true -- 开启折叠
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-vim.o.foldcolumn = "2" -- '0' is not bad  显示折叠符号
-vim.o.signcolumn = "yes" -- 始终显示符号列
+vim.o.foldcolumn = "auto" -- '0' is not bad  显示折叠符号
+vim.o.signcolumn = "yes:1" -- 始终显示符号列
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 -- 不用 Perl 插件
@@ -34,10 +34,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=markdown",
 	group = "MdxFileType",
 })
-
-vim.api.nvim_create_user_command("LazygitToggle", function()
-	require("lib.lazygit").LAZYGIT_TOGGLE()
-end, {})
 
 vim.fn.sign_define("DapBreakpoint", {
 	text = "●",

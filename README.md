@@ -2,9 +2,11 @@
 
 > 准备用 mini.nvim 替换小插件
 
-| 原来            | 替换        |
-| --------------- | ----------- |
-| smoka7/hop.nvim | mini.jump2d |
+| 原来                    | 替换         | 说明         |
+| ----------------------- | ------------ | ------------ |
+| smoka7/hop.nvim         | mini.jump2d  | 跳转         |
+| numToStr/Comment.nvim   | mini.comment | 注释         |
+| lewis6991/gitsigns.nvim | mini.diff    | git 修改高亮 |
 
 ## 插件
 
@@ -38,6 +40,15 @@
 | 事件 | event | VeryLazy                                           | 在UIEnter只有通过vim.schedule发出VeryLazy事件，适合那些不影响收评渲染的插件 |
 | 命令 | cmd   | <CMD>                                              | 输入的命令 eg: Telescope                                                    |
 
+### 自定义命令
+
+| 命令                   | 说明                    | path                   |
+| ---------------------- | ----------------------- | ---------------------- |
+| FormatOpenCurrentFile  | 开启当前文件格式化      | lua/config/format.lua  |
+| FormatCloseCurrentFile | 关闭当前文件格式化      | lua/config/format.lua  |
+| ShowBlame              | 查看当前文件的git blame | lua/lib/show_blame.lua |
+| LazygitToggle          | 切换lazygit             | lua/lib/lazygit.lua    |
+
 ### plugins文件管理及说明
 
 | 文件名        | 说明                   |
@@ -51,13 +62,6 @@
 | ui.lua        | 视觉相关               |
 | which-key.lua | 快捷键配置             |
 | other.lua     | 其他                   |
-
-### 自定义命令
-
-| 命令                   | 说明               | path                  |
-| ---------------------- | ------------------ | --------------------- |
-| FormatOpenCurrentFile  | 开启当前文件格式化 | lua/config/format.lua |
-| FormatCloseCurrentFile | 关闭当前文件格式化 | lua/config/format.lua |
 
 ### [使用bob管理neovim版本](https://github.com/MordechaiHadad/bob)
 

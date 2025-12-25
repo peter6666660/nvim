@@ -24,6 +24,9 @@ vim.g.maplocalleader = " "
 -- 这里是一些全局配置
 require("config.options")
 
+-- 创建命令
+require("lib.create_command").setup()
+
 local lazy = require("lazy")
 -- Setup lazy.nvim
 lazy.setup({
