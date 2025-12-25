@@ -17,6 +17,9 @@ vim.o.foldlevelstart = 99
 vim.g.loaded_perl_provider = 0
 -- 不用 Ruby 插件
 vim.g.loaded_ruby_provider = 0
+vim.g.autoformat_type_list = { "md", "mdx", "lua", "vue", "js", "jsx", "ts", "tsx", "py" }
+vim.g.lsp_tsserver_vue_typescript_plugin_path =
+	"/Users/peter/.nvm/versions/node/v20.18.3/lib/node_modules/@vue/typescript-plugin"
 
 -- 使用 Nerd Font 图标来代替默认的icon
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

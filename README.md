@@ -1,5 +1,7 @@
 # NEOVIM
 
+> 准备用 mini.nvim 替换小插件
+
 ## 插件
 
 ### 快捷键说明
@@ -11,7 +13,7 @@
 | Control + j                     | 切换到上分屏                       |
 | Control + k                     | 切换到下分屏                       |
 | (Option/Alt) + 方向键(上下左右) | 调整分屏尺寸                       |
-| <Tab>                           | 切换下一个Tab                      |
+| <T> ab                          | 切换下一个Tab                      |
 | Shift + <Tab>                   | 切换上一个Tab                      |
 | <leader>tt                      | 切换终端小窗口                     |
 | <leader>tf                      | 切换浮动终端                       |
