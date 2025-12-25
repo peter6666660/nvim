@@ -5,7 +5,10 @@ M.setup = function()
 	require("mini.surround").setup({})
 	require("mini.indentscope").setup({})
 	require("mini.cursorword").setup({})
+	require("mini.git").setup()
+	require("mini.statusline").setup({})
 
+	M.hipatterns() -- TODO: 高亮
 	M.diff()
 	M.comment()
 end
@@ -42,6 +45,18 @@ M.comment = function()
 			custom_commentstring = function()
 				return require("ts_context_commentstring.internal").calculate_commentstring()
 			end,
+		},
+	})
+end
+
+M.hipatterns = function()
+	require("mini.hipatterns").setup({
+		highlighters = {
+			-- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+			fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+			hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+			todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+			note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 		},
 	})
 end

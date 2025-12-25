@@ -119,33 +119,13 @@ return {
 		end,
 	},
 	-- 状态栏
-	{
-		"nvim-lualine/lualine.nvim",
-		opts = {
-			options = {
-				section_separators = "",
-				component_separators = "",
-			},
-		},
-	},
-	-- 只有这个版本可用(tag = 3.3.11)
-	-- 缩进线
 	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	main = "ibl",
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	tag = "v3.3.11",
-	-- 	config = function()
-	-- 		require("ibl").setup({})
-	-- 	end,
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	opts = {
+	-- 		options = {
+	-- 			section_separators = "",
+	-- 			component_separators = "",
+	-- 		},
+	-- 	},
 	-- },
-	-- TODO: 高亮TODO
-	{
-		"folke/todo-comments.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("todo-comments").setup()
-		end,
-	},
 }

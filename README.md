@@ -2,13 +2,17 @@
 
 > 准备用 mini.nvim 替换小插件
 
-| 原来                                | 替换             | 说明                                              |
-| ----------------------------------- | ---------------- | ------------------------------------------------- |
-| smoka7/hop.nvim                     | mini.jump2d      | 跳转                                              |
-| numToStr/Comment.nvim               | mini.comment     | 注释                                              |
-| lewis6991/gitsigns.nvim             | mini.diff        | git 修改高亮                                      |
-| kylechui/nvim-surround              | mini.surround    | Add, delete, replace, find, highlight surrounding |
-| lukas-reineke/indent-blankline.nvim | mini.indentscope | 缩进线                                            |
+| 新               | 旧                                  | 说明                                              |
+| ---------------- | ----------------------------------- | ------------------------------------------------- |
+| mini.jump2d      | smoka7/hop.nvim                     | 跳转                                              |
+| mini.comment     | numToStr/Comment.nvim               | 注释                                              |
+| mini.diff        | lewis6991/gitsigns.nvim             | 可视化 diff / 差异工具                            |
+| mini.surround    | kylechui/nvim-surround              | Add, delete, replace, find, highlight surrounding |
+| mini.indentscope | lukas-reineke/indent-blankline.nvim | 缩进线                                            |
+| mini.statusline  | nvim-lualine/lualine.nvim           | 状态栏                                            |
+| mini.hipatterns  | folke/todo-comments.nvim            | 模式高亮（如 TODO / FIXME）                       |
+| mini.cursorword  | --                                  | 光标词高亮                                        |
+| mini.git         | --                                  | Git 相关集成                                      |
 
 ## 插件
 
