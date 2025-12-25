@@ -16,17 +16,17 @@ return {
 		end,
 	},
 	-- 快速跳转插件
-	{
-		"smoka7/hop.nvim",
-		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			keys = "etovxqpdygfblzhckisuran",
-		},
-		config = function()
-			require("hop").setup({})
-		end,
-	},
+	-- {
+	-- 	"smoka7/hop.nvim",
+	-- 	version = "*",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	opts = {
+	-- 		keys = "etovxqpdygfblzhckisuran",
+	-- 	},
+	-- 	config = function()
+	-- 		require("hop").setup({})
+	-- 	end,
+	-- },
 	-- 代码大纲
 	{
 		"hedyhli/outline.nvim",

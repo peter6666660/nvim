@@ -22,8 +22,13 @@ vim.api.nvim_set_keymap("v", "d", '"+d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 
--- 快速文档中跳转hop插件
-vim.api.nvim_set_keymap("n", "s", ":lua require'hop'.hint_words()<CR>", { noremap = true, silent = true })
+-- 快速文档中跳转mini.jump2
+vim.api.nvim_set_keymap(
+	"n",
+	"s",
+	":lua MiniJump2d.start(MiniJump2d.builtin_opts.word_start)<CR>",
+	{ noremap = true, silent = true }
+)
 
 -- 全局快捷键
 local globalMappings = {
