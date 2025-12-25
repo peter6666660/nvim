@@ -130,15 +130,15 @@ return {
 	},
 	-- 只有这个版本可用(tag = 3.3.11)
 	-- 缩进线
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		event = { "BufReadPre", "BufNewFile" },
-		tag = "v3.3.11",
-		config = function()
-			require("ibl").setup({})
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	tag = "v3.3.11",
+	-- 	config = function()
+	-- 		require("ibl").setup({})
+	-- 	end,
+	-- },
 	-- TODO: 高亮TODO
 	{
 		"folke/todo-comments.nvim",
@@ -148,11 +148,4 @@ return {
 			require("todo-comments").setup()
 		end,
 	},
-	-- 左上角错误提示
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function()
-	-- 		vim.notify = require("notify")
-	-- 	end,
-	-- },
 }

@@ -147,3 +147,7 @@
 | **mini.test**        | Neovim 插件测试工具              |
 | **mini.trailspace**  | 尾随空格高亮 & 清理              |
 | **mini.visits**      | 文件访问历史跟踪                 |
+
+--
+
+--
