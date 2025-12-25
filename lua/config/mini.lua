@@ -2,6 +2,7 @@ local M = {}
 
 M.setup = function()
 	require("mini.jump2d").setup({})
+	require("mini.surround").setup({})
 	M.diff()
 	M.comment()
 end

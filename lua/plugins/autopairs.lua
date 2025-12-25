@@ -15,15 +15,4 @@ return {
 	{ "gcmt/wildfire.vim", event = { "BufReadPre", "BufNewFile" } },
 	-- 快速选中变量 c-n 类似 vscode 的 c-d
 	{ "mg979/vim-visual-multi", event = { "BufReadPre", "BufNewFile" } },
-	-- 替换“ { } ()
-	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
-	},
 }

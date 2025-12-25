@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 -- 快速文档中跳转mini.jump2
 vim.api.nvim_set_keymap(
 	"n",
-	"s",
+	"f",
 	":lua MiniJump2d.start(MiniJump2d.builtin_opts.word_start)<CR>",
 	{ noremap = true, silent = true }
 )

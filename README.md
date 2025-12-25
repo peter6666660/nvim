@@ -2,11 +2,12 @@
 
 > 准备用 mini.nvim 替换小插件
 
-| 原来                    | 替换         | 说明         |
-| ----------------------- | ------------ | ------------ |
-| smoka7/hop.nvim         | mini.jump2d  | 跳转         |
-| numToStr/Comment.nvim   | mini.comment | 注释         |
-| lewis6991/gitsigns.nvim | mini.diff    | git 修改高亮 |
+| 原来                    | 替换          | 说明                                              |
+| ----------------------- | ------------- | ------------------------------------------------- |
+| smoka7/hop.nvim         | mini.jump2d   | 跳转                                              |
+| numToStr/Comment.nvim   | mini.comment  | 注释                                              |
+| lewis6991/gitsigns.nvim | mini.diff     | git 修改高亮                                      |
+| kylechui/nvim-surround  | mini.surround | Add, delete, replace, find, highlight surrounding |
 
 ## 插件
 
