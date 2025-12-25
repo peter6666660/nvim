@@ -7,6 +7,7 @@ M.setup = function()
 	require("mini.cursorword").setup({})
 	require("mini.git").setup()
 	require("mini.statusline").setup({})
+	require("mini.files").setup({})
 
 	M.hipatterns() -- TODO: 高亮
 	M.diff()

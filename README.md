@@ -11,6 +11,7 @@
 | mini.indentscope | lukas-reineke/indent-blankline.nvim | 缩进线                                            |
 | mini.statusline  | nvim-lualine/lualine.nvim           | 状态栏                                            |
 | mini.hipatterns  | folke/todo-comments.nvim            | 模式高亮（如 TODO / FIXME）                       |
+| mini.files       | nvim-tree/nvim-tree.lua             | 文件浏览 & 编辑 🗂                                |
 | mini.cursorword  | --                                  | 光标词高亮                                        |
 | mini.git         | --                                  | Git 相关集成                                      |
 

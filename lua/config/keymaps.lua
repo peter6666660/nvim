@@ -70,7 +70,8 @@ local globalMappings = {
 --普通模式下的快捷键
 local nMappings = {
 	-- 文件树
-	{ "<leader>e", ":NvimTreeToggle <CR>", desc = "文件侧边栏(切换)", remap = false },
+	-- { "<leader>e", ":NvimTreeToggle <CR>", desc = "文件侧边栏(切换)", remap = false },
+	{ "<leader>e", ":lua MiniFiles.open() <CR>", desc = "文件树", remap = false },
 
 	-- tab相关
 	{ "<leader>b", group = "Tab", remap = false, mode = "n" },
