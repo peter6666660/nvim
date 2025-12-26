@@ -69,7 +69,8 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				-- { name = "copilot", priority = 1000 },
+				{ name = "nvim_lsp", priority = 900 },
 				{ name = "tailwindcss" },
 				{ name = "nvim_lua" },
 				{ name = "luasnip" },

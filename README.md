@@ -20,6 +20,27 @@ bob list
 # 目录会安装到 ~/.local/share/bob/nvim-bin/nvim
 # 自行去link
 
+
+
+```
+
+### 常用模式对应命令
+
+| 模式     | 命令   | 描述           |
+| -------- | ------ | -------------- |
+| 普通模式 | `nmap` | normal mode    |
+| 插入模式 | `imap` | insert mode    |
+| 可视模式 | `vmap` | visual mode    |
+| 终端模式 | `tmap` | terminal mode  |
+| 所有模式 | `map`  | 所有模式都显示 |
+
+### 查某模式下某个按键的映射
+
+```sh
+# nmap：普通模式映射
+:verbose nmap <key> # :verbose nmap g
+:verbose imap <Tab>
+
 ```
 
 ## lazy.vim

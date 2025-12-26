@@ -82,7 +82,6 @@ local nMappings = {
 	{ "<leader>o", "<cmd>Outline<CR>", desc = "打开代码大纲", remap = false, mode = "n" },
 
 	-- 代码相关
-	{ "<leader>c", group = "代码相关", remap = false },
 	{ "<leader>cf", ":Neoformat <CR>", desc = "格式化代码", remap = false },
 
 	-- 搜索相关Telescope
@@ -116,7 +115,6 @@ local nMappings = {
 	},
 
 	-- git
-	{ "<leader>g", group = "Git", remap = false },
 	{ "<leader>gg", ":LazygitToggle <CR>", desc = "lazyGit", remap = false },
 	{ "<leader>gd", ":Gitsigns diffthis<CR>", desc = "git diff", remap = false, mode = "n" },
 
