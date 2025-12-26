@@ -68,7 +68,7 @@ bob list
 | Control + j                     | 切换到上分屏                       |
 | Control + k                     | 切换到下分屏                       |
 | (Option/Alt) + 方向键(上下左右) | 调整分屏尺寸                       |
-| <T> ab                          | 切换下一个Tab                      |
+| <Tab>                           | 切换下一个Tab                      |
 | Shift + <Tab>                   | 切换上一个Tab                      |
 | <leader>tt                      | 切换终端小窗口                     |
 | <leader>tf                      | 切换浮动终端                       |
@@ -224,6 +224,7 @@ bob list
 
 ### logs
 
+- 2025-12-26 used mini.nvim
 - 2025-04-24 增加ai + mcp
 - 2024-09-22 配置文件改为协程管理流程
 
