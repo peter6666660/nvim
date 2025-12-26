@@ -1,6 +1,41 @@
-# NEOVIM
+# My NEOVIM
 
-> 准备用 mini.nvim 替换小插件
+## Neovim
+
+### [使用bob管理neovim版本](https://github.com/MordechaiHadad/bob)
+
+```bash
+cargo install --git https://github.com/MordechaiHadad/bob.git
+
+# 会提示一些命令
+bob
+
+# 下载neovim 版本
+bob install 0.10.0
+# 使用某个版本
+bob use 0.10.0
+# 查看有哪些版本
+bob list
+
+# 目录会安装到 ~/.local/share/bob/nvim-bin/nvim
+# 自行去link
+
+```
+
+## lazy.vim
+
+### lazy懒加载控制
+
+| 类型 | key   | 值                                                 | 说明                                                                        |
+| ---- | ----- | -------------------------------------------------- | --------------------------------------------------------------------------- |
+| 事件 | event | BufNewFile                                         | 打开新文件                                                                  |
+| 事件 | event | BufReadPre                                         | 在开始读取缓冲区内容之前触发。                                              |
+| 事件 | event | BufReadPost                                        | 在缓冲区内容读取完成之后触发。                                              |
+| 事件 | event | BufEnter, BufWinEnter, FileType, Syntax , VimEnter | Autocmd事件                                                                 |
+| 事件 | event | VeryLazy                                           | 在UIEnter只有通过vim.schedule发出VeryLazy事件，适合那些不影响收评渲染的插件 |
+| 命令 | cmd   | <CMD>                                              | 输入的命令 eg: Telescope                                                    |
+
+## 我的自定义
 
 ### 替换的插件
 
@@ -43,17 +78,6 @@
 | <leader>fd                      | 通过telescope 查看缓存区的所有诊断 |
 | <leader>fD                      | vim浮窗查看当前诊断并复制到剪切板  |
 
-### lazy懒加载控制
-
-| 类型 | key   | 值                                                 | 说明                                                                        |
-| ---- | ----- | -------------------------------------------------- | --------------------------------------------------------------------------- |
-| 事件 | event | BufNewFile                                         | 打开新文件                                                                  |
-| 事件 | event | BufReadPre                                         | 在开始读取缓冲区内容之前触发。                                              |
-| 事件 | event | BufReadPost                                        | 在缓冲区内容读取完成之后触发。                                              |
-| 事件 | event | BufEnter, BufWinEnter, FileType, Syntax , VimEnter | Autocmd事件                                                                 |
-| 事件 | event | VeryLazy                                           | 在UIEnter只有通过vim.schedule发出VeryLazy事件，适合那些不影响收评渲染的插件 |
-| 命令 | cmd   | <CMD>                                              | 输入的命令 eg: Telescope                                                    |
-
 ### 自定义命令
 
 | 命令                   | 说明                    | path                   |
@@ -63,43 +87,30 @@
 | ShowBlame              | 查看当前文件的git blame | lua/lib/show_blame.lua |
 | LazygitToggle          | 切换lazygit             | lua/lib/lazygit.lua    |
 
+### lib
+
+| 文件                          | 说明                  |
+| ----------------------------- | --------------------- |
+| lua/lib/npm_install_async.lua | 一些自定义的npm依赖包 |
+
 ### plugins文件管理及说明
 
-| 文件名        | 说明                   |
-| ------------- | ---------------------- |
-| autopairs.lua | 标签,括号,引号操作相关 |
-| format.lua    | 代码格式化相关         |
-| git.lua       | git 相关               |
-| lsp.lua       | 语言服务器相关         |
-| nvim-cmp.lua  | 语法提示相关           |
-| telescope.lua | 搜索相关               |
-| ui.lua        | 视觉相关               |
-| which-key.lua | 快捷键配置             |
-| other.lua     | 其他                   |
-
-### [使用bob管理neovim版本](https://github.com/MordechaiHadad/bob)
-
-```bash
-cargo install --git https://github.com/MordechaiHadad/bob.git
-
-# 会提示一些命令
-bob
-
-# 下载neovim 版本
-bob install 0.10.0
-# 使用某个版本
-bob use 0.10.0
-# 查看有哪些版本
-bob list
-
-# 目录会安装到 ~/.local/share/bob/nvim-bin/nvim
-# 自行去link
-
-```
-
-### Debug
-
-- https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
+| 文件名        | 说明                          |
+| ------------- | ----------------------------- |
+| ai.lua        | AI                            |
+| autopairs.lua | 标签,括号,引号操作相关        |
+| debug.lua     | 调试相关 (nvim-dap)           |
+| format.lua    | 代码格式化相关                |
+| lsp.lua       | 语言服务器相关                |
+| mason.lua     | lsp,dap,formatter, linter管理 |
+| mini.lua      | 小插件集合                    |
+| nvim-cmp.lua  | 语法提示相关                  |
+| nvim-ufo.lua  | 折叠功能                      |
+| telescope.lua | 搜索相关                      |
+| terminal      | 终端相关                      |
+| ui.lua        | 视觉相关                      |
+| which-key.lua | 快捷键配置                    |
+| other.lua     | 其他                          |
 
 ### 默认配置
 
@@ -113,30 +124,30 @@ bob list
 
 ### 插件列表
 
-| 插件                                                              | 版本            | 作用                   |
-| ----------------------------------------------------------------- | --------------- | ---------------------- |
-| neovim                                                            | v0.10.0         | -                      |
-| VonHeikemen/lsp-zero.nvim                                         | branch = "v4.x" | 简化和配置LSP          |
-| [hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)   | \*              | 代码大纲               |
-| [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim)   | \*              | 日历/时钟              |
-| [OXY2DEV/markview.nvim](https://github.com/OXY2DEV/markview.nvim) | v20.1.0         | neovim 中 预览markdown |
-| [rcarriga/nvim-notify](https://github.com/rcarriga/nvim-notify)   | -               | 美化日志提示           |
-| [yetone/avante.nvim](https://github.com/yetone/avante.nvim)       | -               | 对接本地ollama api     |
+| 插件                                                            | 版本            | 作用               |
+| --------------------------------------------------------------- | --------------- | ------------------ |
+| neovim                                                          | v0.10.0         | -                  |
+| VonHeikemen/lsp-zero.nvim                                       | branch = "v4.x" | 简化和配置LSP      |
+| [hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim) | \*              | 代码大纲           |
+| [itchyny/calendar.vim](https://github.com/itchyny/calendar.vim) | \*              | 日历/时钟          |
+| [yetone/avante.nvim](https://github.com/yetone/avante.nvim)     | -               | 对接本地ollama api |
 
 ### 功能列表
 
-- [] DAP
 - [] 自定义代片段
-- [x] AI 辅助开发 (ollama)
+- [] notify 美化提示 (不需要)
+- [x] DAP
+- [-] AI 辅助开发
+  - [x] windsurf
+  - [] ollama
 - [x] 支持动态调整splitv 和 文件管理器 的宽度大小
 - [x] 支持折叠: nvim-ufo
-- [x] notify 美化提示
-- [x] 单词翻译 leader + tt
+- [-] 单词翻译 leader + tt (注释了)
 - [x] 本地化配置文件 - leader + df (打开配置文件)
 - [x] 浮动终端 leader + tt | leader + tf
 - [x] 管理文件 nvim-tree
 - [x] lsp-zero 管理 lsp
-- [x] markdown预览 leader + mv 废弃
+- [-] markdown预览 leader + mv 废弃
 - [x] [自定义命令](#自定义命令)
 - [x] telescope
   - [x] 搜索文件、历史记录、文档
@@ -156,8 +167,8 @@ bob list
   - [x] lsp语法错误提示 ts 会重复，而且不能复制
   - [x] lsp诊断信息支持telescope查看，和浮窗查看并粘贴 (leader + fd | leader+fD)
   - [] c c++ 配置表格式化
-- [-] Mason
-  - [] 需要支持自动下载Format插件 比如： js, lua 的format, markdown
+- [x] Mason
+  - [x] 需要支持自动下载Format插件 比如： js, lua 的format, markdown
 - [x] neovim 粘贴的时候,会自动注释和合并 -- bug
 
 ### lsp-tsserver
@@ -199,6 +210,11 @@ bob list
 - Ctrl + q 把搜索文件保存到 quickfix中
 - cdo | cfdo 进行替换 eg: cdo /oldText/newText/g | update
 
+### 配置checkhealth
+
+- 规范: /nvim/lua/**/**/health.lua
+- eg: myhealth/npm/health.lua
+
 ### 常见问题
 
 - 如果碰到ts正则语法提示错误导致高亮识别，优先清除缓存
@@ -210,3 +226,9 @@ bob list
 
 - 2025-04-24 增加ai + mcp
 - 2024-09-22 配置文件改为协程管理流程
+
+## 引用
+
+### Debug
+
+- https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
