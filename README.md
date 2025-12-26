@@ -97,6 +97,10 @@ bob list
 
 ```
 
+### Debug
+
+- https://tamerlan.dev/a-guide-to-debugging-applications-in-neovim/
+
 ### 默认配置
 
 1.  修改 ./lua/config/machine_specific.lua

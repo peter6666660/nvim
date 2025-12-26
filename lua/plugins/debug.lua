@@ -3,23 +3,7 @@ return {
 		"jbyuki/one-small-step-for-vimkind",
 	},
 	{
-		"mfussenegger/nvim-dap",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-		},
-		config = function()
-			require("config.debug").setup()
-		end,
-	},
-	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-	},
-	{
 		"theHamsta/nvim-dap-virtual-text",
-		dependencies = { "mfussenegger/nvim-dap" },
 		opts = {
 			enabled = true,
 			enabled_commands = true,
@@ -31,5 +15,16 @@ return {
 			all_references = false,
 			clear_on_continue = false,
 		},
+	},
+	{
+		"mfussenegger/nvim-dap",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+		},
+		config = function()
+			require("config.debug").setup()
+		end,
 	},
 }

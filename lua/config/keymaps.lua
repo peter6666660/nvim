@@ -55,13 +55,13 @@ local globalMappings = {
 		remap = false,
 		mode = "n",
 	},
-	{
-		"<leader>df",
-		":e" .. constants.DEFAULT_CONFIG_PATH .. "<CR>",
-		desc = "编辑默认配置",
-		remap = false,
-		mode = "n",
-	},
+	-- {
+	-- 	"<leader>df",
+	-- 	":e" .. constants.DEFAULT_CONFIG_PATH .. "<CR>",
+	-- 	desc = "编辑默认配置",
+	-- 	remap = false,
+	-- 	mode = "n",
+	-- },
 	{ "<A-h>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
 	{ "<A-l>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
 	{ "<A-k>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
@@ -147,10 +147,67 @@ local nMappings = {
 	{ "\\c", "<cmd>Calendar -view=clock<CR>", desc = "hover doc", remap = false, mode = "n" },
 	-- 翻译
 	-- { "tt", "<cmd>TranslateW<CR>", desc = "翻译", mode = { "n" } },
+	-- Debugger
+	{
+		"<leader>d",
+		group = "Debugger",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>dt",
+		debug_config.toggle_breakpoint,
+		desc = "Toggle Breakpoint",
+		nowait = true,
+		remap = false,
+		mode = "n",
+	},
+	{
+		"<leader>dc",
+		function()
+			debug_config.continue()
+		end,
+		desc = "Continue",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>di",
+		function()
+			debug_config.step_into()
+		end,
+		desc = "Step Into",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>do",
+		function()
+			debug_config.step_over()
+		end,
+		desc = "Step Over",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>du",
+		function()
+			debug_config.dapui_toggle()
+		end,
+		desc = "DAP UI Toggle",
+		nowait = true,
+		remap = false,
+	},
 
-	-- debug
-
-	{ "<leader>dn", debug_config.debug_neovim, desc = "Debug Neovim", remap = false, mode = "n" },
+	{
+		"<leader>dur",
+		function()
+			debug_config.dapui_reset()
+		end,
+		desc = "DAP UI Reset",
+		nowait = true,
+		remap = false,
+	},
 }
 
 local iMappings = {
