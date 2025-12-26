@@ -37,6 +37,21 @@ bob list
 
 ## 我的自定义
 
+### 文件树
+
+├── ftplugin
+├── init.lua
+├── lazy-lock.json
+├── lua
+│   ├── config // 配置文件
+│   ├── constants.lua // 常量文件[没用到]
+│   ├── lib // 自己写的一些工具函数
+│   ├── myhealth // 自定义的健康检查
+│   └── plugins // 插件管理
+├── mcpServers.json // 没用到
+├── MINI.md // mini.nvim 说明
+└── README.md // 说明
+
 ### 替换的插件
 
 | 新               | 旧                                  | 说明                                              |
