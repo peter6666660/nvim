@@ -30,5 +30,8 @@ M.setup = function()
 		--   end,
 		-- },
 	})
+	-- 自定义lsp
+	local lspCustomconfig = require("config.lsp")
+	lspCustomconfig.setup()
 end
 return M

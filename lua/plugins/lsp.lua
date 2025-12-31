@@ -5,7 +5,7 @@ return {
 		lazy = true,
 		config = false,
 	},
-	-- LSP
+	-- LSP 基础
 	{
 		"neovim/nvim-lspconfig",
 		cmd = { "LspInfo", "LspInstall", "LspStart" },
@@ -20,10 +20,6 @@ return {
 				sign_text = true,
 				capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			})
-
-			-- 自定义lsp
-			local lspCustomconfig = require("config.lsp")
-			lspCustomconfig.setup()
 		end,
 	},
 	--  美化lsp提示

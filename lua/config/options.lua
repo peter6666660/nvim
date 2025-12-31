@@ -31,3 +31,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=markdown",
 	group = "MdxFileType",
 })
+
+local npm_root = vim.fn.system("npm root -g")
+local vue_ts_plugin = npm_root .. "/@vue/typescript-plugin"
+vim.g.lsp_tsserver_vue_typescript_plugin_path = vue_ts_plugin

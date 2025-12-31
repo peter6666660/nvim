@@ -3,9 +3,6 @@ local autocmd_map = {} -- 用来保存创建的自动命令的映射关系
 
 M.setOptions = function()
 	vim.g.autoformat_type_list = { "md", "mdx", "lua", "vue", "js", "jsx", "ts", "tsx", "py" }
-	local npm_root = vim.fn.system("npm root -g"):gsub("%s+", "")
-	local vue_ts_plugin = npm_root .. "/@vue/typescript-plugin"
-	vim.g.lsp_tsserver_vue_typescript_plugin_path = vue_ts_plugin
 
 	vim.g.neoformat_enabled_c = { "clangformat" }
 	vim.g.neoformat_enabled_cpp = { "clangformat" }
