@@ -97,22 +97,27 @@ bob list
 
 ### 快捷键说明
 
-| 快捷键                          | 说明                               |
-| ------------------------------- | ---------------------------------- |
-| Control + h                     | 切换到左分屏                       |
-| Control + l                     | 切换到右分屏                       |
-| Control + j                     | 切换到上分屏                       |
-| Control + k                     | 切换到下分屏                       |
-| (Option/Alt) + 方向键(上下左右) | 调整分屏尺寸                       |
-| <Tab>                           | 切换下一个Tab                      |
-| Shift + <Tab>                   | 切换上一个Tab                      |
-| <leader>tt                      | 切换终端小窗口                     |
-| <leader>tf                      | 切换浮动终端                       |
-| <leader>jk                      | 退出到终端模式                     |
-| <leader>w                       | 保存文件                           |
-| <leader>q                       | 关闭文件                           |
-| <leader>fd                      | 通过telescope 查看缓存区的所有诊断 |
-| <leader>fD                      | vim浮窗查看当前诊断并复制到剪切板  |
+| 快捷键        | 说明                               |
+| ------------- | ---------------------------------- |
+| <leader>sh    | 往下分屏                           |
+| <leader>sv    | 往右分屏                           |
+| <leader>rh    | 左调整split尺寸 (+20)              |
+| <leader>rl    | 右调整split尺寸                    |
+| <leader>rj    | 上调整split尺寸                    |
+| <leader>rk    | 下调整split尺寸                    |
+| Control + h   | 切换到左分屏                       |
+| Control + l   | 切换到右分屏                       |
+| Control + j   | 切换到上分屏                       |
+| Control + k   | 切换到下分屏                       |
+| <Tab>         | 切换下一个Tab                      |
+| Shift + <Tab> | 切换上一个Tab                      |
+| <leader>tt    | 切换终端小窗口                     |
+| <leader>tf    | 切换浮动终端                       |
+| <leader>jk    | 退出到终端模式                     |
+| <leader>w     | 保存文件                           |
+| <leader>q     | 关闭文件                           |
+| <leader>fd    | 通过telescope 查看缓存区的所有诊断 |
+| <leader>fD    | vim浮窗查看当前诊断并复制到剪切板  |
 
 ### 自定义命令
 

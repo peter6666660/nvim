@@ -27,10 +27,10 @@ local globalMappings = {
 	-- 快速文档中跳转mini.jump2
 	{ "f", ":lua MiniJump2d.start(MiniJump2d.builtin_opts.word_start)<CR>", remap = false, mode = "n" },
 	-- 分屏切换
-	-- { "<C-j>", "<C-w>h", desc = "切换到左分屏", noremap = true, silent = true },
-	-- { "<C-l>", "<C-w>l", desc = "切换到右分屏", noremap = true, silent = true },
-	-- { "<C-i>", "<C-w>j", desc = "切换到上分屏", noremap = true, silent = true },
-	-- { "<C-k>", "<C-w>k", desc = "切换到下分屏", noremap = true, silent = true },
+	{ "<C-h>", "<C-w>h", desc = "切换到左分屏", noremap = true, silent = true },
+	{ "<C-l>", "<C-w>l", desc = "切换到右分屏", noremap = true, silent = true },
+	{ "<C-j>", "<C-w>j", desc = "切换到上分屏", noremap = true, silent = true },
+	{ "<C-k>", "<C-w>k", desc = "切换到下分屏", noremap = true, silent = true },
 	-- tab
 	-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
 	-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
@@ -56,10 +56,10 @@ local globalMappings = {
 	-- 	remap = false,
 	-- 	mode = "n",
 	-- },
-	{ "<C-l>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
-	{ "<C-h>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
-	{ "<C-j>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
-	{ "<C-k>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
+	{ "<leader>rl", ":vertical resize +20 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
+	{ "<leader>rh", ":vertical resize -20 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
+	{ "<leader>rj", ":resize +20 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
+	{ "<leader>rk", ":resize -20 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
 }
 --普通模式下的快捷键
 local nMappings = {
