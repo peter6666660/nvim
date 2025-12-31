@@ -55,12 +55,6 @@ return {
 						end
 					end,
 				},
-				autotag = {
-					enable = true,
-					enable_close = true,
-					enable_rename = true,
-					filetypes = { "html", "xml", "javascriptreact", "typescriptreact" },
-				},
 			})
 			vim.filetype.add({ extension = { ejs = "ejs" } })
 			vim.treesitter.language.register("html", "ejs")

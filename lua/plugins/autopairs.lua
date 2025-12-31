@@ -8,7 +8,16 @@ return {
 		config = function()
 			require("nvim-autopairs").setup({})
 			-- 启用对 HTML 文件的自动闭合
-			require("nvim-ts-autotag").setup()
+			require("nvim-ts-autotag").setup({
+				filetypes = {
+					"html",
+					"xml",
+					"jsx",
+					"tsx",
+					"javascriptreact",
+					"typescriptreact",
+				},
+			})
 		end,
 	},
 	-- 可以最快选中 ' " { (  的内容

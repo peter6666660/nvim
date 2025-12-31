@@ -10,13 +10,6 @@ vim.g.loaded_perl_provider = 0
 -- 不用 Ruby 插件
 vim.g.loaded_ruby_provider = 0
 
--- 使用 Nerd Font 图标来代替默认的icon
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 vim.api.nvim_create_augroup("MdxFileType", {})
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.mdx",
@@ -42,3 +35,21 @@ vim.opt.fillchars = {
 	foldclose = "", -- 折叠
 	foldsep = " ", -- 中间分隔
 }
+
+-- 使用 Nerd Font 图标来代替默认的icon
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+-- Nvim 0.13
+-- vim.diagnostic.config({
+-- 	signs = {
+-- 		text = {
+-- 			[vim.diagnostic.severity.ERROR] = " ",
+-- 			[vim.diagnostic.severity.WARN] = " ",
+-- 			[vim.diagnostic.severity.HINT] = " ",
+-- 			[vim.diagnostic.severity.INFO] = " ",
+-- 		},
+-- 	},
+-- })
