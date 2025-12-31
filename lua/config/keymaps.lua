@@ -10,7 +10,7 @@ end
 -- remap = false：启用递归映射，映射的命令会触发已定义的其他映射。
 -- silent = true：执行映射时不会显示命令的输出，避免干扰屏幕输出。
 
-local constants = require("constants")
+-- local constants = require("constants")
 
 local M = {}
 
