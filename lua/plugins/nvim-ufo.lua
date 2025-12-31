@@ -35,10 +35,6 @@ return {
 			return newVirtText
 		end
 
-		-- 定义符号
-		vim.fn.sign_define("FoldOpen", { text = "", texthl = "Folded" }) -- 展开时的图标
-		vim.fn.sign_define("FoldClose", { text = "", texthl = "Folded" }) -- 折叠时的图标
-
 		require("ufo").setup({
 			fold_virt_text_handler = handler,
 			open_fold_hl_timeout = 1000,
