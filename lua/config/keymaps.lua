@@ -22,26 +22,20 @@ vim.api.nvim_set_keymap("v", "d", '"+d', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true, silent = true })
 
--- 快速文档中跳转mini.jump2
-vim.api.nvim_set_keymap(
-	"n",
-	"f",
-	":lua MiniJump2d.start(MiniJump2d.builtin_opts.word_start)<CR>",
-	{ noremap = true, silent = true }
-)
-
 -- 全局快捷键
 local globalMappings = {
+	-- 快速文档中跳转mini.jump2
+	{ "f", ":lua MiniJump2d.start(MiniJump2d.builtin_opts.word_start)<CR>", remap = false, mode = "n" },
 	-- 分屏切换
-	{ "<C-h>", "<C-w>h", desc = "切换到左分屏", remap = false },
-	{ "<C-l>", "<C-w>l", desc = "切换到右分屏", remap = false },
-	{ "<C-j>", "<C-w>j", desc = "切换到上分屏", remap = false },
-	{ "<C-k>", "<C-w>k", desc = "切换到下分屏", remap = false },
+	-- { "<C-j>", "<C-w>h", desc = "切换到左分屏", noremap = true, silent = true },
+	-- { "<C-l>", "<C-w>l", desc = "切换到右分屏", noremap = true, silent = true },
+	-- { "<C-i>", "<C-w>j", desc = "切换到上分屏", noremap = true, silent = true },
+	-- { "<C-k>", "<C-w>k", desc = "切换到下分屏", noremap = true, silent = true },
 	-- tab
 	-- bufferline.nvim 主要用于美化和管理 Neovim 窗口中的缓冲区标签，它不直接控制缓冲区的打开和关闭。
 	-- Neovim 的缓冲区是通过 :bd、:bw、:bn 和 :bp 等命令进行管理的。
-	{ "<Tab>", ":bn <CR>", desc = "切换到下一个tab" },
-	{ "<S-Tab>", ":bp <CR>", desc = "切换到上一个tab" },
+	{ "<Tab>", ":bn <CR>", desc = "切换到下一个tab", remap = false },
+	{ "<S-Tab>", ":bp <CR>", desc = "切换到上一个tab", remap = false },
 	{ "<leader>q", ":q <CR>", desc = "关闭文件", remap = false },
 	{ "<leader>w", ":w <CR>", desc = "保存文件", remap = false },
 
@@ -62,13 +56,15 @@ local globalMappings = {
 	-- 	remap = false,
 	-- 	mode = "n",
 	-- },
-	{ "<A-h>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
-	{ "<A-l>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
-	{ "<A-k>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
-	{ "<A-j>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
+	{ "<C-l>", ":vertical resize +5 <CR>", desc = "右调整尺寸", remap = false, mode = "n" },
+	{ "<C-h>", ":vertical resize -5 <CR>", desc = "左调整尺寸", remap = false, mode = "n" },
+	{ "<C-j>", ":resize +5 <CR>", desc = "上调整尺寸", remap = false, mode = "n" },
+	{ "<C-k>", ":resize -5 <CR>", desc = "下调整尺寸", remap = false, mode = "n" },
 }
 --普通模式下的快捷键
 local nMappings = {
+	{ "<leader>sv", ":vsplit <CR>", desc = "创建右分屏", remap = false },
+	{ "<leader>sh", ":split <CR>", desc = "创建下分屏", remap = false },
 	-- 文件树
 	{ "<leader>e", ":NvimTreeToggle <CR>", desc = "文件侧边栏(切换)", remap = false },
 
