@@ -11,27 +11,30 @@ M.setup = function()
 		automatic_installation = true,
 	})
 	require("mason-lspconfig").setup({
-		automatic_enable = false,
+		-- automatic_enable = false,
 		ensure_installed = {
 			"lua_ls",
 			"ts_ls",
+			"vue_ls",
 			"cssls",
+			"tailwindcss",
 			"marksman",
 			"clangd",
+			"gopls",
 			"bashls",
 			"pylsp",
-			"ruff",
 			"eslint",
+			"dartls",
 		},
-		-- 自动加载lsp 先注释
-		-- handlers = {
-		--   function(server_name)
-		--     require("lspconfig")[server_name].setup({})
-		--   end,
-		-- },
+		handlers = {
+			function(server_name)
+				local lspconfig = require("lspconfig")
+				local configs = require("config.lsp").configs()
+				local config = configs[server_name] or {}
+				lspconfig[server_name].setup(config)
+			end,
+		},
 	})
-	-- 自定义lsp
-	local lspCustomconfig = require("config.lsp")
-	lspCustomconfig.setup()
+	-- LSP now handled by mason-lspconfig handlers above
 end
 return M

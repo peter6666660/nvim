@@ -1,10 +1,4 @@
 return {
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v4.x",
-		lazy = true,
-		config = false,
-	},
 	-- LSP 基础
 	{
 		"neovim/nvim-lspconfig",
@@ -14,12 +8,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp" },
 		},
 		config = function()
-			local lsp_zero = require("lsp-zero")
-
-			lsp_zero.extend_lspconfig({
-				sign_text = true,
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-			})
+			-- LSP configuration now handled in mason.lua
 		end,
 	},
 	--  美化lsp提示

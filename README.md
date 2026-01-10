@@ -187,7 +187,6 @@ bob list
 - [x] 本地化配置文件 - leader + df (打开配置文件)
 - [x] 浮动终端 leader + tt | leader + tf
 - [x] 管理文件 nvim-tree
-- [x] lsp-zero 管理 lsp
 - [-] markdown预览 leader + mv 废弃
 - [x] [自定义命令](#自定义命令)
 - [x] telescope
