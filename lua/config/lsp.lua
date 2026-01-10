@@ -27,15 +27,6 @@ function M.configs()
 		-- tsserver
 		--------------------------------------------------
 		ts_ls = {
-			init_options = {
-				plugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = vim.g.lsp_tsserver_vue_typescript_plugin_path,
-						languages = { "javascript", "typescript", "vue" },
-					},
-				},
-			},
 			filetypes = {
 				"javascript",
 				"javascriptreact",
